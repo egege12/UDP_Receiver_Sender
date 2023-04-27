@@ -1,9 +1,25 @@
 
 #include "socketudp.h"
 
-socketUDP::socketUDP(QObject *parent)
+socketUDP::socketUDP(QObject *parent ,QString addressIP  , QString addressPORT , QString socketType )
     : QObject{parent}
 {
+    if(addressIP !=""){
+        setAddressIP(addressIP);
+    }
+    if(addressPORT !=""){
+        setAddressPORT(addressPORT);
+    }
+    if(socketType !=""){
+        setsocketType(socketType);
+    }
+    if(this->socketType() == "receive"){
+        socketUdp = new QUdpSocket(this);
+    }else if (this->socketType()=="transmit"){
+        socketUdp = new QUdpSocket(this);
+    }else if (this->socketType()=="bidirectional"){
+        socketUdp = new QUdpSocket(this);
+    }
 
 }
 
@@ -47,15 +63,3 @@ void socketUDP::setAddressPORT(const QString &newAddressPORT)
     emit addressPORTChanged();
 }
 
-bool socketUDP::socketBind() const
-{
-    return m_socketBind;
-}
-
-void socketUDP::setsocketBind(bool newSocketBind)
-{
-    if (m_socketBind == newSocketBind)
-        return;
-    m_socketBind = newSocketBind;
-    emit socketBindChanged();
-}

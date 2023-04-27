@@ -3,19 +3,19 @@
 #define SOCKETUDP_H
 
 
-#include <QObject>
 #include "dataSendUDP.h"
-#include "dataReceiveUDP.h"
-
+#include <QObject>
+#include <QUdpSocket>
+#include <QByteArray>
 class socketUDP : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString socketType READ socketType WRITE setsocketType NOTIFY socketTypeChanged)
     Q_PROPERTY(QString addressIP READ addressIP WRITE setAddressIP NOTIFY addressIPChanged)
     Q_PROPERTY(QString addressPORT READ addressPORT WRITE setAddressPORT NOTIFY addressPORTChanged)
-    Q_PROPERTY(bool socketBind READ socketBind WRITE setSocketBind NOTIFY socketBindChanged)
+
 public:
-    explicit socketUDP(QObject *parent = nullptr);
+    explicit socketUDP(QObject *parent = nullptr ,QString addressIP = "" , QString addressPORT = "", QString socketType = "Receive" );
 
     QString socketType() const;
     void setsocketType(const QString &newSocketType);
@@ -26,26 +26,17 @@ public:
     QString addressPORT() const;
     void setAddressPORT(const QString &newAddressPORT);
 
-    bool socketBind() const;
-    void setsocketBind(bool newSocketBind);
-    dataSendUDP *dataPtr() const;
 
 public slots:
     void sendTheDatagram();
     void readPendingDatagrams();
 
-    bool doBindSocket();
 signals:
 
     void nameChanged();
-
     void socketTypeChanged();
     void addressIPChanged();
-
     void addressPORTChanged();
-
-    void socketBindChanged();
-
     void dataPtrChanged();
 
 private:
@@ -54,8 +45,8 @@ private:
     QString m_addressPORT;
     bool m_socketBind;
 
-    dataReceiveUDP *dataReceivePtr;
-    dataSendUDP *dataSendPtr;
+    QUdpSocket *socketUdp;
+
 };
 
 #endif // SOCKETUDP_H
