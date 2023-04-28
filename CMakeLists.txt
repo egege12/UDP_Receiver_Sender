@@ -12,6 +12,7 @@ qt_add_executable(appUDP_Receiver_Sender
     main.cpp
     socketudp.cpp
     socketudp.h
+    comUdpData.h
 )
 
 qt_add_qml_module(appUDP_Receiver_Sender

@@ -3,10 +3,12 @@
 #define SOCKETUDP_H
 
 
-#include "dataSendUDP.h"
+#include "comUdpData.h"
 #include <QObject>
 #include <QUdpSocket>
 #include <QByteArray>
+#include <QTimer>
+#include <QNetworkDatagram>
 class socketUDP : public QObject
 {
     Q_OBJECT
@@ -15,7 +17,7 @@ class socketUDP : public QObject
     Q_PROPERTY(QString addressPORT READ addressPORT WRITE setAddressPORT NOTIFY addressPORTChanged)
 
 public:
-    explicit socketUDP(QObject *parent = nullptr ,QString addressIP = "" , QString addressPORT = "", QString socketType = "Receive" );
+    explicit socketUDP(QObject *parent = nullptr ,QString pcIP = "10.100.30.202",QString addressIP = "" , QString addressPORT = "", QString socketType = "Receive" , const comUdpData* dataReceive= nullptr,const comUdpData* dataSend= nullptr);
 
     QString socketType() const;
     void setsocketType(const QString &newSocketType);
@@ -26,10 +28,15 @@ public:
     QString addressPORT() const;
     void setAddressPORT(const QString &newAddressPORT);
 
+    void processReceiveDatagram(QNetworkDatagram* datagram);
+
+    QByteArray processSendDatagram();
 
 public slots:
     void sendTheDatagram();
     void readPendingDatagrams();
+    void startBroadcasting();
+    void stopBroadcasting();
 
 signals:
 
@@ -38,6 +45,7 @@ signals:
     void addressIPChanged();
     void addressPORTChanged();
     void dataPtrChanged();
+    void sendDatagram();
 
 private:
     QString m_socketType;
@@ -46,6 +54,11 @@ private:
     bool m_socketBind;
 
     QUdpSocket *socketUdp;
+    QTimer timer;
+    QTimer timerTimeoutChecker;
+
+    const comUdpData* receiveData;
+    const comUdpData* sendData;
 
 };
 
