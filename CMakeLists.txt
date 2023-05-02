@@ -5,7 +5,7 @@ project(UDP_Receiver_Sender VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.4 REQUIRED COMPONENTS Quick Network)
-
+find_package(Qt6 REQUIRED COMPONENTS QuickControls2)
 qt_standard_project_setup()
 
 qt_add_executable(appUDP_Receiver_Sender

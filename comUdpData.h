@@ -9,9 +9,10 @@
 
 class comUdpData: public QObject{
 
-    struct paramSignal;
+     Q_OBJECT
 
-    QMap<QString,QList<paramSignal*>> qm_comParam;
+
+
 
     bool parseSignals(QFile *dbcFile);
 
@@ -26,10 +27,17 @@ class comUdpData: public QObject{
     QString parseComment(QString splitedPart);
     QString getBetween(QString first, QString second,QString fullText);
 public:
+    struct paramSignal;
     QMap<QString,QString> qm_data;
-
+    QMap<QString,QList<paramSignal*>> qm_comParam;
     bool importDBC(QString qs_location);
     const QMap<QString,QList<comUdpData::paramSignal*>> * const getsignalParams();
+
+public slots:
+    QString getValue(QString Name);
+    void dataChangeNotify();
+signals:
+    void dataChanged();
 
 };
 struct comUdpData::paramSignal{
@@ -113,7 +121,7 @@ inline bool comUdpData::importDBC(QString qs_location)
     try {
         if (qs_location.isEmpty()){
             throw QString("Dosya konumu boş olamaz!");
-        }else if(!qs_location.contains(".dbc")){
+        }else if(!qs_location.contains("dbc")){
             throw QString("Lütfen \".dbc\" uzantılı bir dosya seçin!");
         }
         else{
@@ -140,6 +148,19 @@ inline bool comUdpData::importDBC(QString qs_location)
 inline const QMap<QString,QList<comUdpData::paramSignal*>>  * const comUdpData::getsignalParams()
 {
     return &qm_comParam;
+}
+
+inline QString comUdpData::getValue(QString Name)
+{
+    if(qm_data.contains(Name))
+    return qm_data.value(Name);
+    else
+    return "Error";
+}
+
+inline void comUdpData::dataChangeNotify()
+{
+    emit dataChanged();
 }
 inline unsigned comUdpData::parseLength(QString splitedPart)
 {

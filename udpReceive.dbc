@@ -1,0 +1,2608 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: Diagnose ECU
+VAL_TABLE_ User_ID 255 "Not Defined" ;
+VAL_TABLE_ Active_2_bits 3 "DCDC_Trip_Not_Available" 2 "DCDC_Trip_Error" 1 "DCDC_Trip_Active" 0 "DCDC_Trip_Not_Active" ;
+VAL_TABLE_ ESS_Trp 3 "Not Available" 2 "Error" 1 "ESS Trip Active" 0 "ESS Trip Not Active" ;
+VAL_TABLE_ ESS_ID 7 "7" 6 "6" 5 "5" 4 "4" 3 "3" 2 "2" 1 "1" 0 "0" ;
+VAL_TABLE_ ESS_Situations 3 "Not Available" 2 "Error" 1 "True" 0 "False" ;
+VAL_TABLE_ X_M_Mot_1 65535 "Not_Available" ;
+VAL_TABLE_ Discrete_Parameters 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_TABLE_ Control_Commands 3 "Don't care/take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_TABLE_ Drive_Direction 3 "Error" 2 "Backwards" 1 "Forward" 0 "Neutral" ;
+VAL_TABLE_ HVAC_Byte_Error 255 "Not Available" 254 "Error" ;
+VAL_TABLE_ HVAC_Wagon_Mode 3 "Not Available" 2 "Heating" 1 "Cooling" 0 "Only Vent " ;
+VAL_TABLE_ HVAC_ECO_Mode 7 " No action" 4 "ECO_mode4   " 3 "ECO_mode 3" 2 " ECO_mode 2 " 1 "ECO_mode 1   " 0 "Normal operation  " ;
+VAL_TABLE_ HVAC_Covid 3 "Not Available" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_TABLE_ HVAC_Value 3 "Not Available" 2 "Error" 1 "Active" 0 "No Active" ;
+VAL_TABLE_ Fuse_Control 1 "Not Blow" 0 "Blow" ;
+VAL_TABLE_ Not_Defined_Value_4_bytes -1 "Not Defined Value" ;
+VAL_TABLE_ Kneeling_Info 13 "not defined" 12 "not defined" 11 "not defined" 10 "not defined" 9 "not defined" 8 "not defined" 7 "not defined" 6 "not defined" 5 "not defined" 4 "Kneeling aborted" 3 "lifting active;" 2 "Kneeling level reached" 1 "Lowering active" 0 "Not active" ;
+VAL_TABLE_ ECAS_Nom_Lv_Req 13 "not defined" 12 "not defined" 11 "not defined" 10 "not defined" 9 "not defined" 8 "Stop level change" 7 "Lower level" 6 "Upper level" 5 "Customer Level " 4 "Preset Level" 3 "Normal Level 3" 2 "Normal Level 2" 1 "Normal Level 1" 0 "No level request" ;
+VAL_TABLE_ ECAS_Info_1 13 "Not defined" 12 "Not defined" 11 "Not defined" 10 "Not defined" 9 "Not defined" 8 "Not defined" 7 "Lower Level" 6 "Upper Level" 5 "Customer Level" 4 "Preset Level" 3 "Normal Level 3" 2 "Normal Level 2" 1 "Normal Level 1" 0 "Level not specified" ;
+VAL_TABLE_ Not_Defined_Value_byte 255 "Not Defined Value" ;
+VAL_TABLE_ Not_Defined_Value_2_bytes 65535 "Not Defined Value" ;
+VAL_TABLE_ ACU_Steering_Angle 597 "Signal is not transferred " 596 "Not Used" 595 "Not Used" 594 "Not Used" 593 "Not Used" ;
+VAL_TABLE_ ACU_Init 15 "Signal is not transferred" 14 "Not Used" 13 "Not Used" 12 "Not Used" 11 "Not Used" 10 "Not Used" 9 "Not Used" 8 "System recognition Init is run" 7 "Not Used" 6 "Not Used" 5 "Not Used" 4 "Not Used" 3 "Not Used" 2 "Not Used" 1 "Not Used" 0 "System recognition Initi compltd" ;
+VAL_TABLE_ Actv_Not_Active 1 "Active" 0 "Not Active" ;
+VAL_TABLE_ ACU_Artc_Interlock 3 "Signal is Not Transferred" 2 "Not Used" 1 "Interlock is Active" 0 "Interlock is Not Active" ;
+VAL_TABLE_ ACU_Warn_Buz_3 1 "High Frequency" 0 "Not Used" ;
+VAL_TABLE_ ACU_Warn_Buz_2 1 "Low Frequency" 0 "Not Active" ;
+VAL_TABLE_ ACU_Warn_Buz_1 1 "Continous Sound" 0 "Not Active" ;
+VAL_TABLE_ ACU_Stop_Lamp 3 "Signal Lamp is Not Transferred" 2 "Not Used" 1 "Stop Lamp is Active" 0 "Stop Lamp is Not Active" ;
+VAL_TABLE_ ACU_Warn_Lmp 3 "Signal is Not Transferred" 2 "Not Used" 1 "Warning Lamp is Active" 0 "Warning Lamp is Not Active" ;
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ S_BTMS_Rel_Minus_Req : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_E_Psng1_24V_Cosu_kWh : 0|8@1+ (1,0) [0|255] "kWh" Vector__XXX
+ SG_ S_HVAC_R1_EVAP_Err : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Tpln_Mot : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Cmp_Rel_Plus_Aux : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ X_T_HVAC_Drv_Setpnt : 0|8@1+ (0.2,0) [0|51] "°C" Vector__XXX
+ SG_ S_MLC_Comm_Err : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Bat_Bal_Alw : 0|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ X_P_BCCU : 0|16@1+ (0.1,0) [0|6553.5] "kWh" Vector__XXX
+ SG_ X_S6_6 : 0|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ X_Vh_ID : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 1812 SW_Info_5: 8 Vector__XXX
+ SG_ X_ESS_SW_Ver_DEV : 24|8@1+ (1,0) [0|250] "" Vector__XXX
+ SG_ X_ESS_SW_Ver_REV : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_ESS_SW_Ver_MIN : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_ESS_SW_Ver_MAJ : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 520 Interface_Messages_6: 8 Vector__XXX
+ SG_ X_E_Tot_Cosu_Diag : 0|64@1+ (1,0) [0|1.84467440737096E+019] "kWh" Vector__XXX
+
+BO_ 519 Interface_Messages_5: 8 Vector__XXX
+ SG_ X_E_Tot_Genr_Diag : 0|64@1+ (1,0) [0|1.84467440737096E+019] "kWh" Vector__XXX
+
+BO_ 518 Interface_Messages_4: 8 Vector__XXX
+ SG_ X_Vh_ID : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 1288 ATS_Message: 8 Vector__XXX
+ SG_ X_ATS_Rs : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_ATS_Hrbeat : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1027 Interface_Parameter_Mess_Diag_2: 8 Vector__XXX
+ SG_ X_Minutes_Tx : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Hours_Tx : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Years_Tx : 44|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ X_Months_Tx : 40|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ X_Param_Arr_Days_Tx : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Param_Arr_X_Val_Tx : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ X_Param_Arr_Usr_Id_Tx : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Param_Arr_No_Tx : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1025 Interface_Parameter_Mess_ECU: 6 Vector__XXX
+ SG_ S_Eeprom_Available : 26|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ S_Sw_Dwn_En : 24|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ X_Tot_Err_No : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ S_EH_Rx_Act : 25|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_ECU_Id : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Para_Ver : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_ECU_Hrbeat : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1026 Interface_Parameter_Mess_Diag_1: 8 Vector__XXX
+ SG_ X_Param_Arr_X_Minutes : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Param_Arr_X_Hours : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Param_Arr_X_Years : 44|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ X_Param_Arr_X_Months : 40|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ X_Param_Arr_X_Days : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Param_Arr_X_Val : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ X_Param_Arr_Usr_Id : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Param_Arr_X_No : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1024 Interface_Heartbeat_Messages: 8 Vector__XXX
+ SG_ S_Err_Cl_Req : 37|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Err_Rx_Req : 36|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Para_Rx_Req : 35|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Para_Wr_Req : 34|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Eep_Wr_Req : 33|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Para_Page_Act : 32|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Req_Err_No : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ X_Req_Para_No : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Diag_Hrbeat : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_User_ID : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1428 General_Messages_5: 8 Vector__XXX
+ SG_ X_Trp_Distn : 0|64@1+ (0.1,0) [0|1.84467440737096E+018] "km" Vector__XXX
+
+BO_ 1811 SW_Info_4: 8 Vector__XXX
+ SG_ X_SW_Panto_Ver_5 : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_SW_Panto_Ver_4 : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_SW_Panto_Ver_3 : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_SW_Panto_Ver_2 : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_SW_Panto_Ver_1 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1381 TCU_Messages_5: 8 Vector__XXX
+ SG_ S_Set_TCU_Lo_24V : 22|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_AC_Chrg_Stat_No : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Heat_Cnv_Stat_No : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Aux_Cnv_Stat_No : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_BCCU_Stat_No : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Mot_Cnv_Stat_No : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ S_TCU_Stat_TCU_Tmout : 21|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Stat_Sp_Zr : 20|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Stat_Ign_Off : 19|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Stat_Ign_3 : 18|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Stat_ECU_Not_Rdy : 17|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Stat_AC_Chrg_Req : 16|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Acc_Val : 0|16@1+ (0.1,-12.5) [-12.5|6541] "m/s^2" Vector__XXX
+
+BO_ 515 Interface_Messages_2: 8 Vector__XXX
+ SG_ X_Odo_Set : 0|64@1+ (1,0) [0|1.84467440737096E+019] "" Vector__XXX
+
+BO_ 514 Interface_Send_Message_1: 8 Vector__XXX
+ SG_ S_SW_Can_Upd : 16|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Set_Minute : 8|8@1+ (1,0) [0|255] "Minute" Vector__XXX
+ SG_ X_Set_Hour : 0|8@1+ (1,0) [0|255] "Hour" Vector__XXX
+
+BO_ 1671 Statistics_8: 8 Vector__XXX
+ SG_ X_E_Psng1_24V_Cosu_Wh : 0|64@1+ (0.001,0) [0|1.84467440737096E+016] "kWh" Vector__XXX
+
+BO_ 1888 ECU_IO_Test_1: 8 Vector__XXX
+ SG_ X_ECU_U_Snsr : 16|16@1+ (0.1,0) [0|6553.5] "V" Vector__XXX
+ SG_ C_ECU_IO_Trpln_Em_Stop : 15|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_ECU_IO_ESS_24V_Kl15_Rel : 14|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_PS2_Batt_DC_Fus_Err : 13|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_PS1_Batt_DC_Fus_Err : 12|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_Fi_Wi : 11|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_ESS_Kl30_Fus_Err : 10|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_ESS_Kl15_Fus_Err : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_ESS_Insu_Ok : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_ESS_Disconn : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_Em_Stop_Trp_Fus_Err : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_ECU_CPU_Sp_Fus_Err : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_BTMS_Fus_Err : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_Aux_Ct_5 : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_Aux_Ct_4 : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_Aux_Ct_3 : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ECU_IO_Aux_Ct_2 : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 513 Interface_Button_Messages_3: 6 Diagnose
+ SG_ S_Set_Tm_Btn : 40|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Year_Interface : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Month_Interface : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Day_Interface : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Hour_Interface : 8|8@1+ (1,0) [0|255] "h" Vector__XXX
+ SG_ X_Minute_Interface : 0|8@1+ (1,0) [0|255] "min" Vector__XXX
+
+BO_ 1427 General_Messages_4: 8 Vector__XXX
+ SG_ X_Daily_Drv : 32|16@1+ (0.1,0) [0|6553.5] "km" Vector__XXX
+ SG_ X_E_Cosu_Trp_Wh : 16|16@1+ (0.001,0) [0|65.535] "Wh" Vector__XXX
+ SG_ S_DWP_Comm_Err : 14|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Diagnose_Comm_Error : 13|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_MLC_Comm_Err : 12|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ESS_Comm_Error : 11|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Comm_Error : 10|1@1+ (1,0) [0|1] "2 States / bit " Vector__XXX
+ SG_ S_Halt_Brk_Sw : 8|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Halt_Brk_Req : 6|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Ign_Lv_3 : 4|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Ign_Lv_2 : 2|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Ign_Lv_1 : 0|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+
+BO_ 1298 Motor_Messages_3: 8 Vector__XXX
+ SG_ S_Init_Chk_MC : 4|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ C_Init_Chk_MC_Alw : 2|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Aux_Off_IL_Lim : 0|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+
+BO_ 1380 TCU_Messages_3: 8 Vector__XXX
+ SG_ X_Par_M_Max : 48|16@1+ (1,0) [0|65535] "Nm" Vector__XXX
+ SG_ X_Par_M_Min : 32|16@1+ (1,0) [0|65535] "Nm" Vector__XXX
+ SG_ X_M_Mot_1 : 16|16@1+ (0.1,-3000) [-3000|3553.5] "Nm" Vector__XXX
+ SG_ C_Cool_Ok : 6|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Trpln_ESS : 4|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Trpln_DCDC : 2|2@1+ (1,0) [0|3] "2 States /bit" Vector__XXX
+
+BO_ 1377 TCU_Message_2: 8 Vector__XXX
+ SG_ C_Mot_1_On : 42|2@1+ (1,0) [0|3] "4 States / 2 bit" Vector__XXX
+ SG_ C_Dis_Slsl : 40|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_TrpLn_Mot : 38|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ C_Rs_Trp : 36|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ X_T_Cnv_Air : 24|8@1+ (0.5,-40) [0|70] "°C" Vector__XXX
+ SG_ X_TCU_Lf : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ C_TrpLn_Tst : 34|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ C_Sys_On : 32|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Sys_On : 14|2@1+ (1,0) [0|3] "2 States /bit" Vector__XXX
+ SG_ S_Sys_Rdy : 12|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_OK_To_Conn : 10|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Initialized : 8|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ X_TCU_Stat_No : 0|8@1+ (1,0) [0|100] "" Vector__XXX
+
+BO_ 1670 Statistics_7: 8 Vector__XXX
+ SG_ X_E_Genr_Trp_Wh : 0|64@1+ (0.1,0) [0|1.84467440737096E+018] "kWh" Vector__XXX
+
+BO_ 1796 HVAC_Messages_4: 8 Vector__XXX
+ SG_ X_Tm_HVAC_Cmp_Run : 32|32@1+ (1,0) [0|4294967295] "Minute" Vector__XXX
+ SG_ X_Psng_Sw_Ver_Mnr : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Psng_Sw_Ver_Mjr : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Drv_Sw_Ver_Mnr : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Drv_Sw_Ver_Mjr : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1622 BTMS_Control_3: 8 Vector__XXX
+ SG_ X_C1_Psv_Fd_Pmp_Spd : 8|8@1+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ X_C1_Psv_Fan_Spd : 0|8@1+ (0.5,0) [0|127.5] "%" Vector__XXX
+
+BO_ 1621 BTMS_Measures_3: 8 Vector__XXX
+ SG_ S_C1_Psv_On_Off : 54|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_C1_Psv_Fd_Pmp_Run : 53|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_C1_Psv_Spd_Adj_Pmp : 52|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_C1_Psv_Ref_Probe_Avl : 51|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_C1_Psv_Ctrl : 50|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_C1_Psv_Rtn_Tmp_Avl : 49|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_C1_Psv_Fd_Tmp_Avl : 48|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Psv_Cont_Min_Spd_Fan : 40|8@1+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ X_T_Psv_Min_Lim : 24|16@1+ (0.03125,-273) [-273|1774.96875] "°C" Vector__XXX
+ SG_ X_C1_Psv_Pmp_Spd_Setpt : 16|8@1+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ X_T_Psv_Max_Lim : 0|16@1+ (0.03125,-273) [-273|1774.96875] "°C" Vector__XXX
+
+BO_ 1669 Statistics_6: 8 Vector__XXX
+ SG_ X_E_Cosu_Tot_Wh : 0|64@1+ (0.1,0) [0|1.84467440737096E+018] "kWh" Vector__XXX
+
+BO_ 1668 Statistics_5: 8 Vector__XXX
+ SG_ X_E_Psng2_AC_Cosu_kWh : 48|16@1+ (0.1,0) [0|6553.5] "kWh" Vector__XXX
+ SG_ X_E_Psng1_AC_Cosu_kWh : 32|16@1+ (0.1,0) [0|6553.5] "kWh" Vector__XXX
+ SG_ X_E_Drv_24V_Cosu_kWh : 16|16@1+ (0.1,0) [0|6553.5] "kWh" Vector__XXX
+ SG_ X_E_Drv_750V_Cosu_kWh : 0|16@1+ (0.1,0) [0|6553.5] "kWh" Vector__XXX
+
+BO_ 1620 BTMS_Error_Message_1: 8 Vector__XXX
+ SG_ S_Psv_BTMS_Comm_Err : 38|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BTMS_Comm_Err : 37|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cat_5_Err : 36|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cat_4_Err : 35|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cat_3_Err : 34|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cat_2_Err : 33|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cat_1_Err : 32|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Psv_Btms_Sys_Err_1 : 31|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Ovrld_Fus_Fan : 30|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_No_Dev_Typ_Sel : 29|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Ovrld_Fd_Pmp : 28|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Ovrld_Refri_Cmp : 27|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Err_1_Cndnsr : 26|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_All_Tmp_Probe_Cool_Med_Defec : 25|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Lo_Pr_Probe_Refri_Cir_Defec : 24|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Hi_Pr_Probe_Refri_Cir_Defec : 23|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Tmp_Probe_Rtn_Flw_Defec : 22|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Tmp_Probe_Fd_Flw_Defec : 21|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Less_Pr_Refri_Cir : 20|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Al_Wtr_Less : 19|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_SW_Lo_Pr_Al : 18|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Hi_Pr_Swc_Off : 17|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_SW_Hi_Pr_Swc_Off : 16|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Max_Rtn_Flw_Tmp_Excd : 15|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Rtn_Tmp_Too_Hi : 14|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Diff_Tmp_Too_Hi : 13|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Wtr_Warn_Less : 12|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PsvErr_12 : 11|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PsvErr_11 : 10|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PsvErr_10 : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PsvErr_9 : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PsvErr_8 : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PsvErr_7 : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PsvErr_6 : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PsvErr_5 : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PsvErr_4 : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PsvErr_3 : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PsvErr_2 : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PsvErr_1 : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1569 Charging_Info_2: 8 Vector__XXX
+ SG_ X_E_Chrg : 32|32@1+ (0.1,0) [0|429496729.5] "kWh" Vector__XXX
+ SG_ X_Tm_Chrg_Min : 0|32@1+ (1,0) [0|4294967295] "Min / bit" Vector__XXX
+
+BO_ 1667 Statistics_4: 8 Vector__XXX
+ SG_ X_E_Psng2_24V_Cosu_Wh : 0|64@1+ (0.001,0) [0|1.84467440737096E+016] "kWh" Vector__XXX
+
+BO_ 1856 Door_Error_Message_1: 8 Vector__XXX
+ SG_ S_Dr_4_Comm_Err : 59|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Comm_Err : 58|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Comm_Err : 57|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Comm_Err : 56|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_False : 55|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Pos_In_Mss : 54|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Snsr_Pwr_Sp_Sc : 53|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Pos_Snsr_Pwr_Sp_Sc : 52|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Pwr_Sp_V1_Mss : 51|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Pwr_Sp_Vbat_Mss : 50|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Elec_Mot_Brk_Sc : 49|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Elec_Mot_Brk_Op_Load : 48|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Elec_Mot_Sc : 47|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Elec_Mot_Op_Load : 46|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Err_On_Sens_Edge : 45|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Entrance_Lgt_Sc : 44|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Buz_Sc_Det : 43|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Sens_Edge : 42|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_False : 41|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Entrance_Lgt_Sc : 30|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Pos_In_Mss : 40|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Snsr_Pwr_Sp_Sc : 39|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Pos_Snsr_Pwr_Sp_Sc : 38|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Pwr_Sp_V1_Mss : 37|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Pwr_Sp_Vbat_Mss : 36|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Elec_Mot_Brk_Sc : 35|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Elec_Mot_Brk_Op_Load : 34|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Elec_Mot_Sc : 33|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Elec_Mot_Op_Load : 32|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Err_On_Sens_Edge : 31|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Buz_Sc_Det : 29|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Sens_Edge : 28|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Snsr_Pwr_Sp_Sc : 25|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Elec_Mot_Brk_Sc : 21|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Elec_Mot_Brk_Op_Load : 20|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_False : 27|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Pos_In_Mss : 26|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Pos_Snsr_Pwr_Sp_Sc : 24|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Pwr_Sp_V1_Mss : 23|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Pwr_Sp_Vbat_Mss : 22|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Elec_Mot_Sc : 19|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Elec_Mot_Op_Load : 18|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Err_On_Sens_Edge : 17|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Entrance_Lgt_Sc : 16|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Buz_Sc_Det : 15|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Sens_Edge : 14|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_False : 13|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Pos_In_Mss : 12|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Snsr_Pwr_Sp_Sc : 11|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Pos_Snsr_Pwr_Sp_Sc : 10|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Pwr_Sp_V1_Mss : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Pwr_Sp_Vbat_Mss : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Elec_Mot_Brk_Sc : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Elec_Mot_Brk_Op_Load : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Elec_Mot_Sc : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Elec_Mot_Op_Load : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Err_On_Sens_Edge : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Entrance_Lgt_Sc : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Buz_Sc_Det : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Sens_Edge : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1840 Door_Messages_1: 6 Vector__XXX
+ SG_ S_Dr_4_Rgt_Elec_Mot_Sc : 47|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Rgt_Elec_Mot_Op_Load : 46|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Rgt_Sens_Edge_Op_Load : 45|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Rgt_Elec_Mot_Sc : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ S_Dr_3_Rgt_Elec_Mot_Op_Load : 43|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Rgt_Sens_Edge_Op_Load : 42|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Rgt_Elec_Mot_Sc : 41|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Rgt_Elec_Mot_Op_Load : 40|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Rgt_Sens_Edge_Op_Load : 39|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Rgt_Elec_Mot_Sc : 38|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Rgt_Elec_Mot_Op_Load : 37|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Rgt_Sens_Edge_Op_Load : 36|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Aut_Dr_Rls : 35|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Em_Swc_In_Stat : 33|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Spare_In_3_Stat : 32|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Opng : 31|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Op : 30|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Obs : 29|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Clng : 28|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_4_Cl : 27|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Em_Swc_In_Stat : 25|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Spare_In_3_Stat : 24|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Opng : 23|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Op : 22|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Obs : 21|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Clng : 20|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_3_Cl : 19|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Em_Swc_In_Stat : 17|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Spare_In_3_Stat : 16|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Opng : 15|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Op : 14|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Obs : 13|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Clng : 12|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_2_Cl : 11|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Rgt_Leaf_Opng : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Rgt_Leaf_Op : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Rgt_Leaf_Clng : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Rgt_Leaf_Cl : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Spare_In_3_Stat : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Opng : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Lft_Leaf_Op : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Clng : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Lft_Leaf_Cl : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Dr_1_Em_Swc_In_Stat : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1824 ECAS_Messages_1: 8 Vector__XXX
+ SG_ X_Knee_Info : 24|4@1+ (1,0) [0|15] "16 States / 4 bit" Vector__XXX
+ SG_ X_ECAS_Nom_Lv_Rear_Axl : 20|4@1+ (1,0) [0|15] "16 States / 4 bit" Vector__XXX
+ SG_ X_ECAS_Nom_Lv_Frnt_Axl : 16|4@1+ (1,0) [0|15] "16 States / 4 bit" Vector__XXX
+ SG_ X_ECAS_Nom_Lv_Req_Rear_Axl : 8|4@1+ (1,0) [0|15] "16 States / 4 bit" Vector__XXX
+ SG_ X_ECAS_Nom_Lv_Req_Frnt_Axl : 1|4@1+ (1,0) [0|15] "16 States / 4 bit" Vector__XXX
+ SG_ S_Knee_Req : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 512 Interface_Button_Messages: 8 Diagnose
+ SG_ S_Tot_Genr_Cosu_Req_Btn : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Del_Eeprom_Req : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Sys_Off_Btn : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Sys_On_Btn : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cmp_Run_Req : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Clear_Err_Hist : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_EM_Stop_Btn_Interface : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Str_Ang_Cal_Req : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Trpln_Tst_Btn : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Rs_Trp_Btn : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1810 SW_Info_3: 8 ECU
+ SG_ X_TCU_SW_Ver_DEV : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Psv_BTMS_SW_Ver_Rev : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Psv_BTMS_SW_Ver_Mnr : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Psv_BTMS_SW_Ver_Mjr : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_VCU_SW_Ver_Rev : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_DWP_SW_Ver_Rev : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_DWP_SW_Ver_Maj : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_DWP_SW_Ver_Min : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1809 SW_Info_2: 8 ECU
+ SG_ X_BTMS_SW_Ver_Rev : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_VCU_SW_Ver_Maj : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_VCU_SW_Ver_Min : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_ECU_SW_Ver_Rev : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_ECU_SW_Ver_Maj : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_ECU_SW_Ver_Min : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_BTMS_SW_Ver_Maj : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_BTMS_SW_Ver_Min : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1808 SW_Info_1: 8 ECU
+ SG_ X_TCU_SW_Ver_BCC : 24|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ X_TCU_SW_Ver_REV : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_TCU_SW_Ver_MIN : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_TCU_SW_Ver_MAJ : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1795 HVAC_Fault_Messages_Measures: 8 ECU
+ SG_ S_HVAC_R1_EVAP_Err_Thstat : 29|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_R1_EVAP_Err_Alws_Ret : 28|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_Pass_Comm_Err : 27|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_FW_Flp_Ret_Err : 26|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_W2_R2_No_Ret : 25|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_W2_R2_Alws_Ret : 24|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_W2_R1_Alws_Ret : 23|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_W2_Ice_EVAP_Err : 22|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_W1_R2_Alws_Ret : 21|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_W1_R1_Alws_Ret : 20|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_W1_EVAP_Err_No_Ret : 19|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_Slv_2_Comm_Err : 18|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_Ovr_Tmp_Cmp2_Err : 17|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_W2_R1_No_Ret : 16|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_W1_R2_No_Ret : 15|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_W1_R1_No_Ret : 14|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_Slv1_Comm_Err : 13|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_Ovr_Tmp_Cmp1_Err : 12|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_LP2_Transdu_Err : 11|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_LP2_Err : 10|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_km2_Err_No_Ret : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_km2_Err_Alws_Ret : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_HP2_Transdu_Err : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_HP2_Err : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_LP1_Transdu_Err : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_LP1_Err : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_km1_Err_No_Ret : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_km1_Err_Alws_Ret : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_HP1_Transdu : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_HP1_Err : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1794 HVAC_Messages_3: 8 ECU
+ SG_ S_Stat_Drv_Mode_Vent : 26|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Stat_Drv_Mode_Heat : 25|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Stat_Drv_Mode_Cool : 24|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_P_HVAC_AC_W1 : 56|8@1+ (0.5,0) [0|127.5] "kW" Vector__XXX
+ SG_ X_E_HVAC_Daily : 40|16@1+ (0.1,0) [0|6553.5] "kWh" Vector__XXX
+ SG_ X_T_HVAC_Chn : 32|8@1+ (0.5,-50) [-50|77.5] "°C" Vector__XXX
+ SG_ X_T_HVAC_Drv_Insd : 16|8@1+ (0.5,-50) [-50|77.5] "°C" Vector__XXX
+ SG_ X_T_HVAC_Drv_Outsd : 8|8@1+ (0.5,-50) [-50|77.5] "°C" Vector__XXX
+ SG_ X_T_HVAC_W2_Insd : 0|8@1+ (0.5,-50) [-50|77.5] "°C" Vector__XXX
+
+BO_ 1793 HVAC_Messages_2: 8 ECU
+ SG_ X_T_HVAC_W2_Outsd : 56|8@1+ (0.2,0) [0|51] "°C" Vector__XXX
+ SG_ X_T_HVAC_Psng_Setpnt : 48|8@1+ (0.2,0) [0|51] "°C" Vector__XXX
+ SG_ X_T_HVAC_W1_Insd : 40|8@1+ (0.5,-50) [-50|77.5] "°C" Vector__XXX
+ SG_ X_T_HVAC_W1_Outsd : 32|8@1+ (0.5,-50) [-50|77.5] "°C" Vector__XXX
+ SG_ X_HVAC_Runtm_Min : 24|8@1+ (1,0) [0|255] "min" Vector__XXX
+ SG_ X_HVAC_Runtm_Hour : 16|8@1+ (1,0) [0|255] "h" Vector__XXX
+ SG_ X_P_HVAC_AC_W2 : 0|8@1+ (0.5,0) [0|127.5] "kW" Vector__XXX
+ SG_ X_P_HVAC_24VDC_W2 : 8|8@1+ (0.5,0) [0|127.5] "kW" Vector__XXX
+
+BO_ 1792 HVAC_Messages_1: 8 ECU
+ SG_ S_HVAC_Rs_Req : 61|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Air_Cmp_Not_Run : 60|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Stat_Psng2_Mode_Cool : 59|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Stat_Psng2_Mode_Heat : 58|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Stat_Psng1_Mode_Cool : 57|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Stat_Psng1_Mode_Heat : 56|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Psng2_Alw_Rtn : 31|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Psng2_No_Rtn : 30|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Psng1_Alw_Rtn : 29|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Psng1_No_Rtn : 28|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Drv_Alw_Rtn : 27|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Drv_No_Rtn : 26|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HVAC_Comm_Err : 25|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_P_HVAC_24VDC_W1 : 48|8@1+ (0.5,0) [0|127.5] "kW" Vector__XXX
+ SG_ X_P_HVAC_750V_Drv_Cbn : 40|8@1+ (0.5,0) [0|127.5] "kW" Vector__XXX
+ SG_ X_P_HVAC_24VDC_Drv_Cbn : 32|8@1+ (0.5,0) [0|127.5] "kW" Vector__XXX
+ SG_ S_Stat_Psng2_Mode_Vent : 24|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Stat_Psng1_Mode_Vent : 23|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ Z_Stat_Eco_Mode : 20|3@1+ (1,0) [0|7] "2 States / bit" Vector__XXX
+ SG_ X_HVAC_Lf_B : 18|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Stat_Dmst_On : 17|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Stat_DcLk_Disconn_Req : 16|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Stat_Pwr_Sp : 15|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ Z_Stat_Frc_On : 13|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Stat_HVAC_On : 12|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Lf_Cnt : 10|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ Z_Eco_Mode_On : 7|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ Z_Cvd19_On : 5|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ Z_Psng_HVAC_On : 3|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ Z_HVAC_On : 1|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Pwr_Sp : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1681 Pantograph_Measures: 8 ECU
+ SG_ X_Horz_Ang_Rgt : 56|8@1+ (1,0) [0|255] "°" Vector__XXX
+ SG_ X_Horz_Ang_Lft : 48|8@1+ (1,0) [0|255] "°" Vector__XXX
+ SG_ X_Vert_Ang_Rgt : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_Vert_Ang_Lft : 32|8@1+ (1,0) [0|255] "°" Vector__XXX
+ SG_ X_Err_Code : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ X_P_Heat : 16|8@1+ (1,0) [0|255] "kW" Vector__XXX
+ SG_ X_T_Panto : 8|8@1+ (1,0) [0|255] "°C" Vector__XXX
+ SG_ X_Poles_Stat : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1680 Pantograph_Messages_1: 8 ECU
+ SG_ X_Max_Pole_Horz_Ang_Lft : 49|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ S_Panto_Comm_Err : 55|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Em_Dwn : 56|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ X_Poles_Actv : 53|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ X_Max_Pole_Horz_Ang_Rgt : 51|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Poles_Out_Trol : 47|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Poles_Interm_Pos : 45|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Poles_Go_Dwn : 43|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Poles_Go_Up : 41|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Poles_Lck : 39|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Poles_In_Hooks : 37|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Poles_Dwn : 35|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Poles_Up : 33|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Pr_Err : 31|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Rsg_Err : 29|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Max_Pole_Hgt_Rgt : 27|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Max_Pole_Hgt_Lft : 25|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Pole_Hgt_Too_Diff : 23|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_No_Volt : 21|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Max_Pole_Spd_Rgt : 19|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Max_Pole_Spd_Lft : 17|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_No_Air_Press : 15|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Rgt_Poles_Centered : 13|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Lft_Pole_Centered : 11|2@1+ (1,0) [0|3] "2 states /  bit" Vector__XXX
+ SG_ X_Hooks_Cl : 9|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ X_Panto_Actv : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Swc_Refl_On : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Bat_Run : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Stop_Rising : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Stop_Lo : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Rise_Poles : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Lo_Poles : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Vh_Nt_Mov : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Panto_Volt_Pre : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1379 TCU_Fault_Messages_2: 8 ECU
+ SG_ X_DCDC_Trp : 40|2@1+ (1,0) [0|3] "4 States / 2 bit" Vector__XXX
+ SG_ S_TCU_Trp_Sys_3 : 38|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Trp_Sys_2_VLU : 36|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Trp_Sys_2 : 34|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Trp_MC1 : 32|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Trp_MC : 30|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Trp_HC : 28|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Trp_BCC : 26|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Br_Sys : 24|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Br_Mc : 22|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Trp_AUX : 20|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_TCU_Warn_Red : 18|2@1+ (1,0) [0|3] "2 States /bit" Vector__XXX
+ SG_ S_TCU_Warn : 16|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_ESS_Trp : 13|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_CAN1_Not_Ops : 12|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Sp_Ov_Volt : 11|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cool_Flw_Too_Lo : 10|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cool_Tmp_Snsr_Err : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cool_Untmp : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cool_Ov_Tmp : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cool_Tmp_Hi : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cab_Int_Fan_Op : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cab_Tmp_Snsr_Err : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cab_Untmp : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cab_Ov_Tmp : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cab_Tmp_Hi : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CAN2_Not_Ops : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1378 TCU_Fault_Messages: 8 ECU
+ SG_ S_Sp_Unvolt : 62|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PEC_HW_Err : 61|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PEC_HW_Mon_Warn : 60|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PEC_Wdg_Err : 59|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cb_BC_Bat_Op : 58|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cb_Sp_BC_Op : 57|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Bordline_BC_Slv_Err : 56|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Bordline_BC_Mstr_Err : 55|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_AC_Chrg_Curr_Ref_Dv : 54|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CtAUXloads_Err_Cl : 53|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CtAUXloads_Err_Op : 52|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CtACChg_Err_Cl : 51|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CtACChg_Err_Op : 50|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Aux_Des_Err : 49|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Aux_Link_Err : 48|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Aux_Pwr_Sp_Err : 47|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Aux_Hw_Err : 46|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Aux_RMS_Ov_Curr : 45|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Aux_Ph_Ov_Curr_Pk : 44|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Aux_GD_Sc : 43|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PEBB_Ov_Tmp : 42|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Aux_Unsymt_Curr : 41|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_U_f_Rdc_Actv_Too_Lng : 40|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Mot_1_Init_Chk_Err : 39|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Mot_1_Trq_Err : 38|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Tr_Sfty_Mss : 37|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Mot_1_Bwd_EMF_Hi : 36|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Mot_1_Unbal_Curr : 35|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CtSCM_Err_Cl : 34|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CtSCM_Err_Op : 33|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_MC1_Des_Err : 32|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_MC1_Link_Err : 31|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_MC1_Pwr_Sp_Err : 30|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_MC1_HW_Err : 29|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_MC1_Curr_Snsr_Ofst_Too_Hi : 28|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Mot_1_RMS_Ov_Curr : 27|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Mot_1_Ph_Ov_Curr_Pk : 26|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_MC1_GD_Sc : 25|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Mot_1_Spd_Snsr_Err : 24|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Mot_1_Ov_Spd : 23|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Mot_1_Tmp_Snsr_Err : 22|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Mot_1_Ov_Tmp : 21|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Mot_1_Tmp_Hi : 20|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_VLU_HC_Des_Err : 19|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_VLU_HC_Link_Err : 18|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_VLU_HC_Pwr_Sp_Err : 17|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_VLU_HC_HW_Err : 16|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_VLU_HC_Curr_Snsr_Ofst_Too_Hi : 15|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HC_Ov_Curr_Pk : 14|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_VLU_Ov_Curr_Pk : 13|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_VLU_HC_GD_Sc : 12|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HC_Sc : 11|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_VLU_Sc : 10|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_VLU_Oc : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_VLU_Res_Ov_Tmp : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_VLU_Res_Tmp_Hi : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Erf_DC_Link : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Psv_Dischrg_To_Err : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Volt_Inbal_DC_Link : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Unvolt_DC_Link : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Ov_Volt_DC_Link : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Aux_Curr_Snsr_Ofst_Too_Hi : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_DC_In_Ov_Curr : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1426 General_Messages_3: 8 ECU
+ SG_ X_Tot_Dist : 0|64@1+ (0.1,0) [0|1.84467440737096E+018] "km" Vector__XXX
+
+BO_ 1425 General_Messages_2: 8 ECU
+ SG_ X_Rmn_Dist : 40|8@1+ (1,0) [0|255] "km" Vector__XXX
+ SG_ X_Vh_Spd : 48|16@1+ (0.00392,0) [0|256.8972] "km" Vector__XXX
+ SG_ S_Panto_Conn_Cat : 32|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Brk_Pdl_Pres : 30|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Em_Stop_Btn : 28|2@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Prk_Brk : 26|2@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Lo_24V : 24|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ X_Hour : 16|8@1+ (1,0) [0|255] "h" Vector__XXX
+ SG_ X_Minute : 8|8@1+ (1,0) [0|255] "min" Vector__XXX
+ SG_ X_Sec : 0|8@1+ (1,0) [0|255] "s" Vector__XXX
+
+BO_ 1666 Statistics_3: 8 ECU
+ SG_ X_E_BCCU : 48|16@1+ (0.1,0) [0|6553.5] "kWh" Vector__XXX
+ SG_ X_E_Heat_Cnv : 32|16@1+ (0.1,0) [0|6553.5] "kWh" Vector__XXX
+ SG_ X_E_Aux_Cnv : 16|16@1+ (0.1,0) [0|6553.5] "kWh" Vector__XXX
+ SG_ X_E_Tr_Cnv : 0|16@1+ (0.1,0) [0|6553.5] "kWh" Vector__XXX
+
+BO_ 1665 Statistics_2: 8 ECU
+ SG_ X_E_Genr_Tot_Wh : 0|64@1+ (0.1,0) [0|1.84467440737096E+018] "kWh" Vector__XXX
+
+BO_ 1664 Statistics_1: 8 ECU
+ SG_ X_E_Cosu_Daily_Wh : 48|16@1+ (0.1,0) [0|6553.5] "kWh" Vector__XXX
+ SG_ X_E_Genr_Daily_Wh : 32|16@1+ (0.1,0) [0|6553.5] "kWh" Vector__XXX
+ SG_ X_Avg_Cosu_Trp : 16|16@1+ (0.001,0) [0|65.535] "kWh/km" Vector__XXX
+ SG_ X_Avg_Cosu_Daily : 0|16@1+ (0.001,0) [0|65.535] "kWh/km" Vector__XXX
+
+BO_ 1648 Fuse_Check_00: 8 ECU
+ SG_ X_S14_8 : 46|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S14_7 : 45|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S14_5 : 44|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S14_4 : 43|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S14_3 : 42|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S14_2 : 41|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S14_1 : 40|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S13_6 : 39|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S13_5 : 38|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S13_4 : 37|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S13_3 : 36|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S13_2 : 35|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S13_1 : 34|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S12_8 : 33|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S12_7 : 32|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S7_8 : 31|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S7_7 : 30|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S7_3 : 29|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S7_2 : 28|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S7_1 : 27|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S6_5 : 26|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S6_4 : 25|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S6_3 : 24|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S6_2 : 23|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S6_1 : 22|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S5_8 : 21|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S5_7 : 20|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S5_3 : 18|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S5_1 : 16|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S4_3 : 14|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S4_1 : 12|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S3_7 : 11|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S3_5 : 9|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S5_6 : 19|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S5_2 : 17|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S4_8 : 15|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S4_2 : 13|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S3_6 : 10|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S3_3 : 7|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S3_1 : 5|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S1_3 : 2|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S1_1 : 0|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S3_4 : 8|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S3_2 : 6|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S1_6 : 4|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S1_4 : 3|1@1+ (1,0) [0|1] "4 states / 2 bit" Vector__XXX
+ SG_ X_S1_2 : 1|1@1+ (1,0) [0|1] "4 States / 2 bit" Vector__XXX
+
+BO_ 1632 VCU_Messages_1: 8 ECU
+ SG_ S_Mot_Room_Fi : 10|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Rear_Pnl_Fi : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Bat_Room_Fi : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Frnt_Pnl_Fi : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_U_ECU_Sp : 32|32@1+ (0.001,0) [0|4294967.295] "V" Vector__XXX
+ SG_ S_Node_6_Comm_Err : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Node_5_Comm_Err : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Node_4_Comm_Err : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Node_3_Comm_Err : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Node_2_Comm_Err : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Node_1_Comm_Err : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Fus_Chk_Comm_Err : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1619 BTMS_Measures_2: 8 ECU
+ SG_ S_Psv_Cmp_Stdstl_Tm_Actv : 30|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Psv_Cmp_Cyc_Tm_Actv : 29|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Psv_Cndnsr_Fan_On : 28|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Psv_Cmp_Run : 27|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Psv_Fd_Pmp_Run : 26|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Psv_Chiller_On : 25|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_T_Psv_Max_Diff : 48|16@1+ (0.03125,-273) [-273|1774.96875] "°C" Vector__XXX
+ SG_ X_T_Psv_Setpt : 32|16@1+ (0.03125,-273) [-273|1774.96875] "°C" Vector__XXX
+ SG_ C_C1_Psv_Chiller_On : 24|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Fd_Pmp_Spd : 8|16@1+ (0.0025,0) [0|163.8375] "%" Vector__XXX
+ SG_ X_Spd_Fan : 0|8@1+ (0.5,0) [0|127.5] "%" Vector__XXX
+
+BO_ 1618 BTMS_Measures_1: 8 ECU
+ SG_ X_Lo_Pr : 48|16@1+ (0.1,0) [0|6553.5] "kPa" Vector__XXX
+ SG_ X_Hi_Pr : 32|16@1+ (0.1,0) [0|6553.5] "kPa" Vector__XXX
+ SG_ X_T_Rtn_Bat1 : 16|16@1+ (0.03125,-273) [-273|1774.96875] "°C" Vector__XXX
+ SG_ X_T_Fd_Flw : 0|16@1+ (0.03125,-273) [-273|1774.96875] "°C" Vector__XXX
+
+BO_ 1617 BTMS_Control_2: 8 ECU
+ SG_ X_T_C1_Psv_Rtn_Flw : 48|16@1+ (0.03125,-273) [-273|1774.96875] "°C" Vector__XXX
+ SG_ X_T_C1_Psv_Fd_Flw : 32|16@1+ (0.03125,-273) [-273|1774.96875] "°C" Vector__XXX
+ SG_ X_C1_Psv_Config_Fans : 24|8@1+ (1,0) [0|255] "1 count / bit" Vector__XXX
+ SG_ X_C1_Psv_Cnt_Fans : 16|8@1+ (1,0) [0|255] "1 count / bit" Vector__XXX
+ SG_ S_Actv_Chillers_On : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Stdst1_Tm_Cmp_Actv : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cyc_Tm_Actv : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cndnsr_Fan_1_On : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cmp_Is_Run : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Fd_Pmp_Is_Run : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Actv_Chillers_On_Req : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1616 BTMS_Control_1: 8 ECU
+ SG_ X_Fd_Pmp_Spd_Setpt : 48|16@1+ (0.0025,0) [0|163.8375] "%" Vector__XXX
+ SG_ X_T_Max_Rtn_Lim : 32|16@1+ (0.03125,-273) [-273|1774.96875] "°C" Vector__XXX
+ SG_ X_T_Lim_Fd_Rtn : 16|16@1+ (0.03125,-273) [-273|1774.96875] "°C" Vector__XXX
+ SG_ X_T_Setpt : 0|16@1+ (0.03125,-273) [-273|1774.96875] "°C" Vector__XXX
+
+BO_ 1602 Steering_Pump_Messages_2: 8 ECU
+ SG_ X_P_Str_Pmp : 48|16@1+ (0.1,0) [0|6553.5] "kW" Vector__XXX
+ SG_ X_I_Str_Pmp : 40|8@1+ (1,0) [0|255] "A" Vector__XXX
+ SG_ X_U_Str_Pmp : 32|8@1+ (1,0) [0|255] "V" Vector__XXX
+ SG_ X_Str_Pmp_Hour_Cnt : 16|16@1+ (10,0) [0|655350] "h" Vector__XXX
+ SG_ X_T_Str_Pmp_Inver : 8|8@1+ (1,-50) [-50|205] "°C" Vector__XXX
+ SG_ X_T_Str_Pmp_Mot : 0|8@1+ (1,-50) [-50|205] "°C" Vector__XXX
+
+BO_ 1601 Steering_Pump_Error_Messages: 8 ECU
+ SG_ S_Str_Pmp_Comm_Err : 17|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Str_Pmp_Malfun_Ind_Lmp : 16|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Str_Pmp_Red_Warn : 15|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Str_Pmp_Ambr_Warn : 14|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Str_Pmp_Em_Slip : 13|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Str_Pmp_Em_FOC : 12|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Str_Pmp_Err_Stat : 11|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Mn_Ct_Stat : 10|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Pwr_Stg_Actv_Stat : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Pwr_Stg_Actv : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1600 Steering_Pump_Messages_1: 8 ECU
+ SG_ X_PCT_Mot_Load : 56|8@1+ (1,0) [0|255] "%" Vector__XXX
+ SG_ S_Str_Pmp_Em_Frc : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_RPM_Str_Pmp_Act_Spd : 40|16@1+ (1,0) [0|65535] "rpm" Vector__XXX
+ SG_ X_RPM_Str_Pmp_Set_Spd : 24|16@1+ (1,0) [0|65535] "rpm" Vector__XXX
+ SG_ X_RPM_Str_Pmp : 8|16@1+ (1,0) [0|65535] "rpm" Vector__XXX
+ SG_ C_Str_Pmp_Rs_Err : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Str_Pmp_Ctrl_En : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1584 Air: 8 ECU
+ SG_ X_T_Air_Cmp : 40|8@1+ (1,-40) [-40|215] "" Vector__XXX
+ SG_ S_Cmp_Actv : 33|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Air_Cmp_Stop_HVAC : 32|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Aux_Eqip_Sp_Pr : 24|8@1+ (0.1,0) [0|25.5] "bar" Vector__XXX
+ SG_ X_Air_Susp_Sp_Pr : 16|8@1+ (0.1,0) [0|25.5] "bar" Vector__XXX
+ SG_ X_Srv_Brk_Cir_2_Air_Pr : 8|8@1+ (0.1,0) [0|25.5] "bar" Vector__XXX
+ SG_ X_Srv_Brk_Cir_1_Air_Pr : 0|8@1+ (0.1,0) [0|25.5] "bar" Vector__XXX
+
+BO_ 1568 Charging_Info_1: 8 ECU
+ SG_ S_DC_Chrg_Actv : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_I_24V_Bat_Out : 48|16@1+ (0.025,-750) [0|225] "A" Vector__XXX
+ SG_ X_I_24V_Sp_Out : 32|16@1+ (0.025,-750) [0|225] "A" Vector__XXX
+ SG_ X_U_24V_Sp_Out : 16|16@1+ (0.025,0) [0|35] "V" Vector__XXX
+ SG_ S_BC_Off_IL_Lim : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_24V_Sp_On : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Ct_AC_Chrg_Cl : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_AC_Chrg_On : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Chrg_Btn : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1553 Aux_Contactor_Status: 8 ECU
+ SG_ S_Cmp_Rel_Plus_Aux : 11|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BTMS_Rel_Plus_Aux : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Cmp_Rel_Minus_Aux : 10|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Rear_Clm_Rel_Minus_Aux : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Frnt_Clm_Rel_Minus_Aux : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Cmp_Rel_Plus : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_BTMS_Rel_Plus : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Rear_Clm_Rel_Plus : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Frnt_Clm_Rel_Plus : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CtAC1_Cl_Stat_Aux : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CtAC1_Cl_Req : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Ct_Aux_Loads_Cl : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1552 Aux_Converter: 8 ECU
+ SG_ X_P_24V_Sp_Out : 48|16@1+ (0.0001,0) [0|6.5535] "kW" Vector__XXX
+ SG_ X_P_400V_Sp_Out : 32|16@1+ (0.025,-750) [-750|70] "kW" Vector__XXX
+ SG_ X_I_400V_Sp_Out : 16|16@1+ (0.025,-750) [-750|100] "A" Vector__XXX
+ SG_ S_Aux_Red : 4|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_400V_Sp_On : 2|2@1+ (1,0) [0|3] "2 States /bit" Vector__XXX
+ SG_ C_400V_Sp_On : 0|2@1+ (1,0) [0|3] "2 States /bit" Vector__XXX
+
+BO_ 1536 Heating_Converter: 8 ECU
+ SG_ X_P_Heat_Cnv : 16|16@1+ (0.025,0) [0|100] "kW" Vector__XXX
+ SG_ S_HC_Off_IL_Lim : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Req_Heat_Modl : 8|8@1+ (0.4,0) [0|100] "%" Vector__XXX
+ SG_ S_Heat_On : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Heat_On : 0|1@1+ (1,0) [0|1] "2 States /bit" Vector__XXX
+
+BO_ 1424 General_Messages: 8 ECU
+ SG_ S_ESS_On : 60|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_HV_On : 58|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ X_Vh_Id : 40|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ S_SW_Upd_En : 56|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ X_T_Cool_Liq : 16|8@1+ (0.5,-40) [0|70] "°C" Vector__XXX
+ SG_ S_Cool_Ok : 6|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ X_T_24V_Bat : 8|8@1+ (0.5,-40) [-40|70] "°C" Vector__XXX
+ SG_ S_ECAS_Comm_Err : 4|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Ops_Acc : 2|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Ops_Bcu : 0|2@1+ (1,0) [0|3] "2 States /bit" Vector__XXX
+
+BO_ 1408 Steering_Angle_Sensor: 8 ECU
+ SG_ S_Str_Ang_Snsr_Comm_Err : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Str_Wh_Ang : 8|8@1+ (1,-125) [-125|130] "°" Vector__XXX
+ SG_ X_Str_Snsr_Cal : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1392 ACU_Messages: 8 ECU
+ SG_ S_Artc_Comm_Err : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Artc_Reduc_Info : 32|8@1+ (0.4,0) [0|102] "%" Vector__XXX
+ SG_ X_Artc_Tilt_Ang : 24|8@1+ (0.5,-62.5) [-62.5|65] "°" Vector__XXX
+ SG_ X_Artc_Str_Ang : 16|8@1+ (0.5,0) [0|127.5] "°" Vector__XXX
+ SG_ S_Artc_Intl_Actv : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Artc_Warn_Buz_3 : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Artc_Warn_Buz_2 : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Artc_Warn_Buz_1 : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Artc_Err_Lmp : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Artc_Warn_Lmp : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ X_Artc_Init : 8|4@1+ (1,0) [0|100] "%" Vector__XXX
+ SG_ S_Artc_Em_Rls : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1376 TCU_Messages_1: 8 ECU
+ SG_ X_U_Cmn_Mod : 48|16@1+ (0.05,-1500) [-1500|1776.75] "V" Vector__XXX
+ SG_ X_U_Ln_DCDC : 32|16@1+ (0.025,0) [0|1638.375] "V" Vector__XXX
+ SG_ X_U_DC_Link_CC200 : 16|16@1+ (0.025,0) [0|1638.375] "V" Vector__XXX
+ SG_ X_I_CC200 : 0|16@1+ (0.05,-1000) [-1000|2276.75] "A" Vector__XXX
+
+BO_ 1360 ESS_Fault_Register: 8 ECU
+ SG_ S_IMD_Insu_Warn_Strup : 28|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS2_Gen_Warn : 44|1@1+ (1,0) [0|0] "2 States / bit" Vector__XXX
+ SG_ S_BMS2_Mstr_CFG_Err : 43|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS2_Mstr_SW_Err : 42|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS2_Mstr_HW_Err : 41|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS2_Slv_Md_HW_Err : 40|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS2_SPI_Com_Err : 39|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS2_CAN_Hrbeat_Err : 38|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS1_Gen_Warn : 37|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS1_Mstr_CFG_Err : 36|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS1_Mstr_SW_Err : 35|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS1_Mstr_HW_Err : 34|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS1_Slv_Md_HW_Err : 33|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS1_SPI_Com_Err : 32|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_BMS1_CAN_Hrbeat_Err : 31|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_IMD_Insu_Warn_Ops : 30|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_IMD_Insu_Al_Ops : 29|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_IMD_Insu_Al_Strup : 27|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_IMD_Self_Tst_Err : 26|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_IMD_Wi_Intrpt_Func_Err : 25|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PEC_HW_FW_Err : 24|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CtCh_Ct_Err : 23|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CtNeg_Ct_Err : 22|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CtPos_Ct_Err : 21|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_St_I_MssMc : 20|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Bat_I_MssMc : 19|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Bat_V_Mss : 18|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_TrpLn_Op : 17|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_VCU_CAN_Hrbeat_Err : 16|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Bat_Cell_Unbal : 15|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ESS_SOC_Hi : 14|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ESS_SOC_Lo : 13|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ESS_Cont_Curr_Der : 12|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Bat_Cell_Un_Tmp : 11|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Bat_Cell_Ov_Tmp : 10|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Bat_Cell_Un_Volt : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Bat_Cell_Ov_Volt : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ESS_Ovld : 7|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_ESS_Ov_Curr : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PreChrg_To_Err : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PreChrg_Ovrld_Err : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PreChrg_Inh_Volt_Hi : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PreChrg_Inh_Engy_Hi : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_TrpLn_Op_In_Ops : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_TrpLn_OT_Sw_Op : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1353 ESS_Energy_Counter: 8 ECU
+ SG_ X_DisChrg_Pwr_Cnt : 32|32@1+ (0.01,0) [0|42949672.95] "32" Vector__XXX
+ SG_ X_Chrg_Pwr_Cnt : 0|32@1+ (0.01,0) [0|42949672.95] "kWh" Vector__XXX
+
+BO_ 1352 ESS_Capacity_Counter: 8 ECU
+ SG_ X_DisChrg_Curr_Cnt : 32|32@1+ (0.01,0) [0|42949672.95] "Ah" Vector__XXX
+ SG_ X_Chrg_Curr_Cnt : 0|32@1+ (0.01,0) [0|42949672.95] "Ah" Vector__XXX
+
+BO_ 1351 ESS_Temp_Message_2: 8 ECU
+ SG_ X_Ts_At_SW_Upd : 32|32@1+ (1,0) [0|4294967295] "s" Vector__XXX
+ SG_ X_Ts_At_Cnt_Rs : 0|32@1+ (1,0) [0|4294967295] "s" Vector__XXX
+
+BO_ 1350 ESS_Temp_Message_1: 8 ECU
+ SG_ X_T_BMS_Avg : 32|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+ SG_ X_T_BMS_SlvID_Min : 27|5@1+ (1,0) [0|31] "16 States / 5 bit" Vector__XXX
+ SG_ X_T_BMS_MstrID_Min : 24|3@1+ (1,0) [0|7] "8 States / 3 bit" Vector__XXX
+ SG_ X_T_BMS_Min : 16|8@1+ (1,-40) [-40|65495] "°C" Vector__XXX
+ SG_ X_T_BMS_SlvID_Max : 11|5@1+ (1,0) [0|31] "16 States / 5 bit" Vector__XXX
+ SG_ X_T_BMS_MstrID_Max : 8|3@1+ (1,0) [0|7] "8 States / 3 bit" Vector__XXX
+ SG_ X_T_BMS_Max : 0|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+
+BO_ 1349 ESS_Estimation_Message: 8 ECU
+ SG_ X_E_Bat : 48|8@1+ (0.5,0) [0|127.5] "kWh" Vector__XXX
+ SG_ X_Capcty_Bat : 40|8@1+ (0.5,0) [0|127.5] "Ah" Vector__XXX
+ SG_ X_E_Avl : 32|8@1+ (0.5,0) [0|127.5] "kWh" Vector__XXX
+ SG_ X_Capcty_Avl : 24|8@1+ (0.5,0) [0|127.5] "Ah" Vector__XXX
+ SG_ X_SOE : 16|8@1+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ X_SOH : 8|8@1+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ X_SOC : 0|8@1+ (0.5,0) [0|127.5] "%" Vector__XXX
+
+BO_ 1348 ESS_Feedback_Message: 8 ECU
+ SG_ X_Bat_Bal_Actv : 18|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ X_Bat_IMD_On : 16|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ X_Bat_Prechrg_Ct_Cl : 14|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ X_Bat_Posv_Ct_Cl : 12|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ X_Bat_Neg_Ct_Cl : 10|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ X_Bat_Trp : 8|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ X_Bat_Warn : 6|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ X_Bat_Shdn : 4|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ X_Bat_En : 2|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ X_Bat_Rdy : 0|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+
+BO_ 1347 ESS_Cooling_Message: 8 ECU
+ SG_ X_T_Cool_Des : 16|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+ SG_ X_T_Cool_Max : 8|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+ SG_ X_Cool_Min_Flw : 0|8@1+ (0.25,0) [0|63.75] "°C" Vector__XXX
+
+BO_ 1346 ESS_Measures_2: 8 ECU
+ SG_ X_I_Max_Cont_DisChrg : 48|16@1+ (0.5,-2000) [-2000|30767.5] "A" Vector__XXX
+ SG_ X_I_Max_Cont_Chrg : 32|16@1+ (0.1,-2000) [0|0] "A" Vector__XXX
+ SG_ X_I_Pk_DisChrg : 16|16@1+ (0.1,-2000) [-2000|4553.5] "A" Vector__XXX
+ SG_ X_I_Pk_Chrg : 0|16@1+ (0.1,-2000) [-2000|4553.5] "A" Vector__XXX
+
+BO_ 1345 ESS_Measures_1: 8 ECU
+ SG_ X_R_Insu : 48|16@1+ (0.05,0) [0|3276.75] "kOhm" Vector__XXX
+ SG_ X_U_Bat_Term : 32|16@1- (0.02,0) [-655.36|655.34] "V" Vector__XXX
+ SG_ X_U_Bat_Int : 16|16@1+ (0.02,0) [0|1310.7] "V" Vector__XXX
+ SG_ X_I_Bat : 0|16@1+ (0.1,-2000) [-2000|4553.5] "A" Vector__XXX
+
+BO_ 1344 ESS_Control_Messages_1: 8 ECU
+ SG_ X_Tm_Sys_Sec : 32|8@1+ (0.25,0) [0|63.75] "" Vector__XXX
+ SG_ X_Pct_Rmn_Ovrld : 24|8@1+ (0.5,0) [0|127.5] "%" Vector__XXX
+ SG_ X_Pmp_Run : 6|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ X_T_Cool_ESS_Out : 16|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+ SG_ X_T_Cool_ESS_In : 8|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+ SG_ C_Cl_Ct_Neg : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Disconn_Bat : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Conn_Bat : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Bat_Rs_Cnt : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Bat_VCU_Rdy : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ C_Bat_IMD_Off : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1328 DCDC_Error_Messages_1: 8 ECU
+ SG_ S_Out_Temp_Choke_Snsr : 29|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_CAN_Bus : 28|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_In_Out_Curr_Snsr : 27|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Out_Curr_Snsr : 26|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_In_Curr_Snsr : 25|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_In_Choke_Tmp_Snsr : 24|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Tf_Temp_Snsr : 23|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Fus_Minus_Pole : 22|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Fus_Plus_Pole : 21|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_SW_Trp_Ovr_Curr_Volt : 20|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_HW_Trp_Ovr_Curr_Volt : 19|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Pwr_Sp_Unit : 18|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Chrg_In_Filt : 17|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Amb_Tmp_Too_Lo : 16|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Trans_Cnv : 15|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Wrg_Tmp_Meas_Heat_Sink : 14|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Ovr_Heat_In_Choke : 13|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Tf_Ovr_Heat : 12|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Volt_Meas_Trp : 11|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Ovr_Heat_Sink : 10|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Insu_2_Rel : 9|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Insu_1_Rel : 8|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_PreChrg_Ct : 7|1@1+ (1,0) [0|0] "2 States / bit" Vector__XXX
+ SG_ S_Ln_Ct_2 : 6|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Ln_Ct_1 : 5|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Ovr_Heat_Out_Choke : 4|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Sc_Mod : 3|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Out_Ovr_Volt : 2|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Ln_Over_Volt : 1|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+ SG_ S_Curr_Ovrld : 0|1@1+ (1,0) [0|1] "2 States / bit" Vector__XXX
+
+BO_ 1316 DCDC_Measures_2: 8 ECU
+ SG_ X_U_Line : 16|16@1+ (0.04,-1250) [-1250|1371.4] "V" Vector__XXX
+ SG_ X_T_Tf : 8|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+ SG_ X_T_Heat_Sink : 0|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+
+BO_ 1315 DCDC_Measures_1: 8 ECU
+ SG_ X_U_Out : 48|16@1+ (0.02,0) [0|1310.7] "V" Vector__XXX
+ SG_ X_I_Out : 32|16@1+ (0.01,0) [0|655.35] "A" Vector__XXX
+ SG_ X_U_DC_Link : 16|16@1+ (0.02,0) [0|1310.7] "V" Vector__XXX
+ SG_ X_I_In : 0|16@1+ (0.01,0) [0|655.35] "A" Vector__XXX
+
+BO_ 1314 DCDC_Feedback_Messages: 8 ECU
+ SG_ X_I_Act_Out_Ref : 48|16@1+ (0.01,0) [0|655.35] "A" Vector__XXX
+ SG_ Z_Fat_Err_Ocr : 32|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Aut_Rs_Trp_Lck : 30|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Aut_Rs_Trp_Actv : 28|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Warn_Actv : 26|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Cnv_Cvr_Op : 24|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Cnv_Rdy_Wrk : 22|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Cnv_Wrk_Cor : 20|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_In_Sgnl_Sfty_Drv : 18|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Secnd_Sd_Insu_Tst_Rel_Cl : 16|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Pri_Sd_Insu_Tst_Rel_Cl : 14|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Prechrg_Ct_Actv : 12|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Mn_Ct_Cir_Plus_Actv : 10|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Mn_Ct_Cir_Minus_Actv : 8|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Insu_Tst_Actv : 6|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Cnv_Rdy : 4|2@1+ (1,0) [0|3] "4 states/ 2 bit" Vector__XXX
+ SG_ Z_DCDC_Conn : 2|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_DCDC_Disconn : 0|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+
+BO_ 1313 DCDC_Control_Messages: 8 ECU
+ SG_ W_U_Max_Pri_Sd : 48|16@1+ (0.02,0) [0|1310.7] "V" Vector__XXX
+ SG_ W_U_Min_Pri_Sd : 32|16@1+ (0.02,0) [0|1310.7] "V" Vector__XXX
+ SG_ W_I_Max_Secnd_Sd : 16|16@1+ (0.01,0) [0|655.35] "A" Vector__XXX
+ SG_ W_I_Tgt_Secnd_Sd : 0|16@1+ (0.01,0) [0|655.35] "A" Vector__XXX
+
+BO_ 1312 DCDC_Command_Messages: 8 ECU
+ SG_ W_U_Out_Lim_Cnv : 16|16@1+ (0.02,0) [0|1310.7] "V" Vector__XXX
+ SG_ Z_Rdc_Fan_Spd : 12|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Rs_Lac_Err : 10|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Actv_Secnd_Cir_Insu_Tst : 8|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Actv_Pri_Cir_Insu_Tst : 6|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Cl_Mn_Ct_Insu_Tst : 4|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Cnv_St_Ops : 2|2@1+ (1,0) [0|3] "4 states / 2 bit" Vector__XXX
+ SG_ Z_Ct_Cl_Req : 0|2@1+ (1,0) [0|3] "4 states/2 bit" Vector__XXX
+
+BO_ 1297 Motor_Messages_2: 8 ECU
+ SG_ X_Vh_Spd_Lim : 56|8@1+ (1,0) [0|255] "km" Vector__XXX
+ SG_ X_T_Brk_Rsr : 48|8@1+ (4,-40) [-40|800] "°C" Vector__XXX
+ SG_ X_P_Brk_Rsr : 32|16@1+ (0.025,0) [0|200] "kW" Vector__XXX
+ SG_ X_I_Max_Brk_Rsr : 16|16@1+ (0.025,-750) [0|320] "A" Vector__XXX
+ SG_ S_PM_Lim : 14|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_MC_Lim : 12|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_ASR_Off_Fdbk : 10|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_ASR_Off_Req : 8|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ X_Drv_Dir_Fdbk : 6|2@1+ (1,0) [0|3] "4 states/2 bit" Vector__XXX
+ SG_ X_Drv_Dir : 4|2@1+ (1,0) [0|3] "4 states/2 bit" Vector__XXX
+ SG_ S_Drv_Rls : 2|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+ SG_ S_Mot1_On : 0|2@1+ (1,0) [0|3] "2 States / bit" Vector__XXX
+
+BO_ 1296 Motor_Messages_1: 8 ECU
+ SG_ X_T_Mot_1 : 48|8@1+ (2,-40) [-40|250] "°C" Vector__XXX
+ SG_ X_P_Mot_1 : 32|16@1+ (0.025,-750) [-190|190] "kW" Vector__XXX
+ SG_ X_I_Mot_1 : 16|16@1+ (0.025,-750) [0|350] "A" Vector__XXX
+ SG_ X_Frq_Trq_Mot_1 : 0|16@1+ (0.025,-750) [-350|350] "rad/s" Vector__XXX
+
+BO_ 1284 Torque_Message_2: 8 ECU
+ SG_ X_M_Rls : 48|16@1+ (0.1,-3000) [-2500|2500] "Nm" Vector__XXX
+ SG_ X_ACU_Trq_Der : 40|8@1+ (1,0) [0|255] "%" Vector__XXX
+ SG_ X_Spd_Lim_Der : 32|8@1+ (1,0) [0|255] "%" Vector__XXX
+ SG_ X_M_Max_Avl : 16|16@1+ (0.1,-3000) [2500|2500] "Nm" Vector__XXX
+ SG_ X_Brk_Pdl_Pos : 8|8@1+ (0.4,0) [0|102] "%" Vector__XXX
+ SG_ Z_Stat_Ret : 0|8@1+ (0.4,0) [0|102] "%" Vector__XXX
+
+BO_ 1283 Torque_Message_1: 8 ECU
+ SG_ X_Acc_Pdl_Pos : 48|8@1+ (0.4,0) [0|102] "%" Vector__XXX
+ SG_ X_M_Min_Mot_1 : 32|16@1+ (0.1,-3000) [-2500|2500] "Nm" Vector__XXX
+ SG_ X_Req_Trq_Mot : 16|16@1+ (0.1,-3000) [-2500|2500] "Nm" Vector__XXX
+ SG_ X_M_Max_Mot_1 : 0|16@1+ (0.1,-3000) [-2500|2500] "Nm" Vector__XXX
+
+
+
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+CM_ SG_ 3221225472 S_BTMS_Rel_Minus_Req "Event Box";
+CM_ SG_ 3221225472 S_HVAC_R1_EVAP_Err "Event Box";
+CM_ SG_ 3221225472 S_TCU_Tpln_Mot "Event Box";
+CM_ SG_ 3221225472 C_Cmp_Rel_Plus_Aux "Event Box";
+CM_ SG_ 3221225472 S_MLC_Comm_Err "Event Box";
+CM_ SG_ 3221225472 X_S6_6 "Event Box";
+CM_ SG_ 1427 S_DWP_Comm_Err "Event Box";
+CM_ SG_ 1427 S_Diagnose_Comm_Error "Event Box";
+CM_ SG_ 1427 S_MLC_Comm_Err "Event Box";
+CM_ SG_ 1427 S_ESS_Comm_Error "Event Box";
+CM_ SG_ 1427 S_TCU_Comm_Error "Event Box";
+CM_ SG_ 1427 S_Halt_Brk_Sw "Event Box";
+CM_ SG_ 1427 S_Halt_Brk_Req "Event Box";
+CM_ SG_ 1427 S_Ign_Lv_3 "Event Box";
+CM_ SG_ 1427 S_Ign_Lv_2 "Event Box";
+CM_ SG_ 1427 S_Ign_Lv_1 "Event Box";
+CM_ SG_ 1298 S_Init_Chk_MC "Event Box";
+CM_ SG_ 1298 C_Init_Chk_MC_Alw "Event Box";
+CM_ SG_ 1298 S_Aux_Off_IL_Lim "Event Box";
+CM_ SG_ 1380 S_TCU_Trpln_ESS "Event Box";
+CM_ SG_ 1380 S_TCU_Trpln_DCDC "Event Box";
+CM_ SG_ 1377 C_Dis_Slsl "Event Box";
+CM_ SG_ 1377 S_TCU_TrpLn_Mot "Event Box";
+CM_ SG_ 1377 C_Rs_Trp "Event Box";
+CM_ SG_ 1377 C_TrpLn_Tst "Event Box";
+CM_ SG_ 1377 C_Sys_On "Event Box";
+CM_ SG_ 1377 S_Sys_On "Event Box";
+CM_ SG_ 1377 S_Sys_Rdy "Event Box";
+CM_ SG_ 1377 S_OK_To_Conn "Event Box";
+CM_ SG_ 1377 S_Initialized "Event Box";
+CM_ SG_ 1621 S_C1_Psv_On_Off "Event Box";
+CM_ SG_ 1621 S_C1_Psv_Fd_Pmp_Run "Event Box";
+CM_ SG_ 1621 S_C1_Psv_Spd_Adj_Pmp "Event Box";
+CM_ SG_ 1621 S_C1_Psv_Ref_Probe_Avl "Event Box";
+CM_ SG_ 1621 S_C1_Psv_Ctrl "Event Box";
+CM_ SG_ 1621 S_C1_Psv_Rtn_Tmp_Avl "Event Box";
+CM_ SG_ 1621 S_C1_Psv_Fd_Tmp_Avl "Event Box";
+CM_ SG_ 1620 S_BTMS_Comm_Err "Event Box";
+CM_ SG_ 1620 S_Cat_5_Err "Event Box";
+CM_ SG_ 1620 S_Cat_4_Err "Event Box";
+CM_ SG_ 1620 S_Cat_3_Err "Event Box";
+CM_ SG_ 1620 S_Cat_2_Err "Event Box";
+CM_ SG_ 1620 S_Cat_1_Err "Event Box";
+CM_ SG_ 1620 S_Psv_Btms_Sys_Err_1 "Event Box";
+CM_ SG_ 1620 S_Ovrld_Fus_Fan "Event Box";
+CM_ SG_ 1620 S_No_Dev_Typ_Sel "Event Box";
+CM_ SG_ 1620 S_Ovrld_Fd_Pmp "Event Box";
+CM_ SG_ 1620 S_Ovrld_Refri_Cmp "Event Box";
+CM_ SG_ 1620 S_Err_1_Cndnsr "Event Box";
+CM_ SG_ 1620 S_All_Tmp_Probe_Cool_Med_Defec "Event Box";
+CM_ SG_ 1620 S_Lo_Pr_Probe_Refri_Cir_Defec "Event Box";
+CM_ SG_ 1620 S_Hi_Pr_Probe_Refri_Cir_Defec "Event Box";
+CM_ SG_ 1620 S_Tmp_Probe_Rtn_Flw_Defec "Event Box";
+CM_ SG_ 1620 S_Tmp_Probe_Fd_Flw_Defec "Event Box";
+CM_ SG_ 1620 S_Less_Pr_Refri_Cir "Event Box";
+CM_ SG_ 1620 S_Al_Wtr_Less "Event Box";
+CM_ SG_ 1620 S_SW_Lo_Pr_Al "Event Box";
+CM_ SG_ 1620 S_Hi_Pr_Swc_Off "Event Box";
+CM_ SG_ 1620 S_SW_Hi_Pr_Swc_Off "Event Box";
+CM_ SG_ 1620 S_Max_Rtn_Flw_Tmp_Excd "Event Box";
+CM_ SG_ 1620 S_Rtn_Tmp_Too_Hi "Event Box";
+CM_ SG_ 1620 S_Diff_Tmp_Too_Hi "Event Box";
+CM_ SG_ 1620 S_Wtr_Warn_Less "Event Box";
+CM_ SG_ 1620 S_PsvErr_12 "Event Box";
+CM_ SG_ 1620 S_PsvErr_11 "Event Box";
+CM_ SG_ 1620 S_PsvErr_10 "Event Box";
+CM_ SG_ 1620 S_PsvErr_9 "Event Box";
+CM_ SG_ 1620 S_PsvErr_8 "Event Box";
+CM_ SG_ 1620 S_PsvErr_7 "Event Box";
+CM_ SG_ 1620 S_PsvErr_6 "Event Box";
+CM_ SG_ 1620 S_PsvErr_5 "Event Box";
+CM_ SG_ 1620 S_PsvErr_4 "Event Box";
+CM_ SG_ 1620 S_PsvErr_3 "Event Box";
+CM_ SG_ 1620 S_PsvErr_2 "Event Box";
+CM_ SG_ 1620 S_PsvErr_1 "Event Box";
+CM_ SG_ 1856 S_Dr_4_Comm_Err "Event Box";
+CM_ SG_ 1856 S_Dr_3_Comm_Err "Event Box";
+CM_ SG_ 1856 S_Dr_2_Comm_Err "Event Box";
+CM_ SG_ 1856 S_Dr_1_Comm_Err "Event Box";
+CM_ SG_ 1856 S_Dr_4_False "Event Box";
+CM_ SG_ 1856 S_Dr_4_Pos_In_Mss "Event Box";
+CM_ SG_ 1856 S_Dr_4_Snsr_Pwr_Sp_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_4_Pos_Snsr_Pwr_Sp_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_4_Pwr_Sp_V1_Mss "Event Box";
+CM_ SG_ 1856 S_Dr_4_Pwr_Sp_Vbat_Mss "Event Box";
+CM_ SG_ 1856 S_Dr_4_Elec_Mot_Brk_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_4_Elec_Mot_Brk_Op_Load "Event Box";
+CM_ SG_ 1856 S_Dr_4_Elec_Mot_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_4_Elec_Mot_Op_Load "Event Box";
+CM_ SG_ 1856 S_Dr_4_Err_On_Sens_Edge "Event Box";
+CM_ SG_ 1856 S_Dr_4_Entrance_Lgt_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_4_Buz_Sc_Det "Event Box";
+CM_ SG_ 1856 S_Dr_4_Sens_Edge "Event Box";
+CM_ SG_ 1856 S_Dr_3_False "Event Box";
+CM_ SG_ 1856 S_Dr_3_Entrance_Lgt_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_3_Pos_In_Mss "Event Box";
+CM_ SG_ 1856 S_Dr_3_Snsr_Pwr_Sp_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_3_Pos_Snsr_Pwr_Sp_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_3_Pwr_Sp_V1_Mss "Event Box";
+CM_ SG_ 1856 S_Dr_3_Pwr_Sp_Vbat_Mss "Event Box";
+CM_ SG_ 1856 S_Dr_3_Elec_Mot_Brk_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_3_Elec_Mot_Brk_Op_Load "Event Box";
+CM_ SG_ 1856 S_Dr_3_Elec_Mot_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_3_Elec_Mot_Op_Load "Event Box";
+CM_ SG_ 1856 S_Dr_3_Err_On_Sens_Edge "Event Box";
+CM_ SG_ 1856 S_Dr_3_Buz_Sc_Det "Event Box";
+CM_ SG_ 1856 S_Dr_3_Sens_Edge "Event Box";
+CM_ SG_ 1856 S_Dr_2_Snsr_Pwr_Sp_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_2_Elec_Mot_Brk_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_2_Elec_Mot_Brk_Op_Load "Event Box";
+CM_ SG_ 1856 S_Dr_2_False "Event Box";
+CM_ SG_ 1856 S_Dr_2_Pos_In_Mss "Event Box";
+CM_ SG_ 1856 S_Dr_2_Pos_Snsr_Pwr_Sp_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_2_Pwr_Sp_V1_Mss "Event Box";
+CM_ SG_ 1856 S_Dr_2_Pwr_Sp_Vbat_Mss "Event Box";
+CM_ SG_ 1856 S_Dr_2_Elec_Mot_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_2_Elec_Mot_Op_Load "Event Box";
+CM_ SG_ 1856 S_Dr_2_Err_On_Sens_Edge "Event Box";
+CM_ SG_ 1856 S_Dr_2_Entrance_Lgt_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_2_Buz_Sc_Det "Event Box";
+CM_ SG_ 1856 S_Dr_2_Sens_Edge "Event Box";
+CM_ SG_ 1856 S_Dr_1_False "Event Box";
+CM_ SG_ 1856 S_Dr_1_Pos_In_Mss "Event Box";
+CM_ SG_ 1856 S_Dr_1_Snsr_Pwr_Sp_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_1_Pos_Snsr_Pwr_Sp_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_1_Pwr_Sp_V1_Mss "Event Box";
+CM_ SG_ 1856 S_Dr_1_Pwr_Sp_Vbat_Mss "Event Box";
+CM_ SG_ 1856 S_Dr_1_Elec_Mot_Brk_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_1_Elec_Mot_Brk_Op_Load "Event Box";
+CM_ SG_ 1856 S_Dr_1_Elec_Mot_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_1_Elec_Mot_Op_Load "Event Box";
+CM_ SG_ 1856 S_Dr_1_Err_On_Sens_Edge "Event Box";
+CM_ SG_ 1856 S_Dr_1_Entrance_Lgt_Sc "Event Box";
+CM_ SG_ 1856 S_Dr_1_Buz_Sc_Det "Event Box";
+CM_ SG_ 1856 S_Dr_1_Sens_Edge "Event Box";
+CM_ SG_ 1840 S_Dr_4_Rgt_Elec_Mot_Sc "Event Box";
+CM_ SG_ 1840 S_Dr_4_Rgt_Elec_Mot_Op_Load "Event Box";
+CM_ SG_ 1840 S_Dr_4_Rgt_Sens_Edge_Op_Load "Event Box";
+CM_ SG_ 1840 S_Dr_3_Rgt_Elec_Mot_Sc "Event Box";
+CM_ SG_ 1840 S_Dr_3_Rgt_Elec_Mot_Op_Load "Event Box";
+CM_ SG_ 1840 S_Dr_3_Rgt_Sens_Edge_Op_Load "Event Box";
+CM_ SG_ 1840 S_Dr_2_Rgt_Elec_Mot_Sc "Event Box";
+CM_ SG_ 1840 S_Dr_2_Rgt_Elec_Mot_Op_Load "Event Box";
+CM_ SG_ 1840 S_Dr_2_Rgt_Sens_Edge_Op_Load "Event Box";
+CM_ SG_ 1840 S_Dr_1_Rgt_Elec_Mot_Sc "Event Box";
+CM_ SG_ 1840 S_Dr_1_Rgt_Elec_Mot_Op_Load "Event Box";
+CM_ SG_ 1840 S_Dr_1_Rgt_Sens_Edge_Op_Load "Event Box";
+CM_ SG_ 1840 S_Aut_Dr_Rls "Event Box";
+CM_ SG_ 1840 S_Dr_4_Em_Swc_In_Stat "Event Box";
+CM_ SG_ 1840 S_Dr_4_Spare_In_3_Stat "Event Box";
+CM_ SG_ 1840 S_Dr_4_Opng "Event Box";
+CM_ SG_ 1840 S_Dr_4_Op "Event Box";
+CM_ SG_ 1840 S_Dr_4_Obs "Event Box";
+CM_ SG_ 1840 S_Dr_4_Clng "Event Box";
+CM_ SG_ 1840 S_Dr_4_Cl "Event Box";
+CM_ SG_ 1840 S_Dr_3_Em_Swc_In_Stat "Event Box";
+CM_ SG_ 1840 S_Dr_3_Spare_In_3_Stat "Event Box";
+CM_ SG_ 1840 S_Dr_3_Opng "Event Box";
+CM_ SG_ 1840 S_Dr_3_Op "Event Box";
+CM_ SG_ 1840 S_Dr_3_Obs "Event Box";
+CM_ SG_ 1840 S_Dr_3_Clng "Event Box";
+CM_ SG_ 1840 S_Dr_3_Cl "Event Box";
+CM_ SG_ 1840 S_Dr_2_Em_Swc_In_Stat "Event Box";
+CM_ SG_ 1840 S_Dr_2_Spare_In_3_Stat "Event Box";
+CM_ SG_ 1840 S_Dr_2_Opng "Event Box";
+CM_ SG_ 1840 S_Dr_2_Op "Event Box";
+CM_ SG_ 1840 S_Dr_2_Obs "Event Box";
+CM_ SG_ 1840 S_Dr_2_Clng "Event Box";
+CM_ SG_ 1840 S_Dr_2_Cl "Event Box";
+CM_ SG_ 1840 S_Dr_1_Rgt_Leaf_Opng "Event Box";
+CM_ SG_ 1840 S_Dr_1_Rgt_Leaf_Op "Event Box";
+CM_ SG_ 1840 S_Dr_1_Rgt_Leaf_Clng "Event Box";
+CM_ SG_ 1840 S_Dr_1_Rgt_Leaf_Cl "Event Box";
+CM_ SG_ 1840 S_Dr_1_Spare_In_3_Stat "Event Box";
+CM_ SG_ 1840 S_Dr_1_Opng "Event Box";
+CM_ SG_ 1840 S_Dr_1_Lft_Leaf_Op "Event Box";
+CM_ SG_ 1840 S_Dr_1_Clng "Event Box";
+CM_ SG_ 1840 S_Dr_1_Lft_Leaf_Cl "Event Box";
+CM_ SG_ 1840 S_Dr_1_Em_Swc_In_Stat "Event Box";
+CM_ SG_ 1824 S_Knee_Req "Event Box";
+CM_ SG_ 512 S_Cmp_Run_Req "Event Box";
+CM_ SG_ 512 S_Clear_Err_Hist "Event Box";
+CM_ SG_ 512 S_EM_Stop_Btn_Interface "Event Box";
+CM_ SG_ 512 S_Str_Ang_Cal_Req "Event Box";
+CM_ SG_ 512 S_Trpln_Tst_Btn "Event Box";
+CM_ SG_ 512 S_Rs_Trp_Btn "Event Box";
+CM_ SG_ 1795 S_HVAC_R1_EVAP_Err_Thstat "Event Box";
+CM_ SG_ 1795 S_HVAC_R1_EVAP_Err_Alws_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_Pass_Comm_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_FW_Flp_Ret_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_W2_R2_No_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_W2_R2_Alws_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_W2_R1_Alws_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_W2_Ice_EVAP_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_W1_R2_Alws_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_W1_R1_Alws_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_W1_EVAP_Err_No_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_Slv_2_Comm_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_Ovr_Tmp_Cmp2_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_W2_R1_No_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_W1_R2_No_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_W1_R1_No_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_Slv1_Comm_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_Ovr_Tmp_Cmp1_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_LP2_Transdu_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_LP2_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_km2_Err_No_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_km2_Err_Alws_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_HP2_Transdu_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_HP2_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_LP1_Transdu_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_LP1_Err "Event Box";
+CM_ SG_ 1795 S_HVAC_km1_Err_No_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_km1_Err_Alws_Ret "Event Box";
+CM_ SG_ 1795 S_HVAC_HP1_Transdu "Event Box";
+CM_ SG_ 1795 S_HVAC_HP1_Err "Event Box";
+CM_ SG_ 1792 S_HVAC_Comm_Err "Event Box";
+CM_ SG_ 1792 S_Stat_Psng2_Mode_Vent "Event Box";
+CM_ SG_ 1792 S_Stat_Psng1_Mode_Vent "Event Box";
+CM_ SG_ 1792 S_Stat_Dmst_On "Event Box";
+CM_ SG_ 1792 S_Stat_DcLk_Disconn_Req "Event Box";
+CM_ SG_ 1792 S_Stat_Pwr_Sp "Event Box";
+CM_ SG_ 1792 S_Stat_HVAC_On "Event Box";
+CM_ SG_ 1792 S_Pwr_Sp "Event Box";
+CM_ SG_ 1680 X_Max_Pole_Horz_Ang_Lft "Event Box";
+CM_ SG_ 1680 S_Panto_Comm_Err "Event Box";
+CM_ SG_ 1680 X_Em_Dwn "Event Box";
+CM_ SG_ 1680 X_Poles_Actv "Event Box";
+CM_ SG_ 1680 X_Max_Pole_Horz_Ang_Rgt "Event Box";
+CM_ SG_ 1680 X_Poles_Out_Trol "Event Box";
+CM_ SG_ 1680 X_Poles_Interm_Pos "Event Box";
+CM_ SG_ 1680 X_Poles_Go_Dwn "Event Box";
+CM_ SG_ 1680 X_Poles_Go_Up "Event Box";
+CM_ SG_ 1680 X_Poles_Lck "Event Box";
+CM_ SG_ 1680 X_Poles_In_Hooks "Event Box";
+CM_ SG_ 1680 X_Poles_Dwn "Event Box";
+CM_ SG_ 1680 X_Poles_Up "Event Box";
+CM_ SG_ 1680 X_Pr_Err "Event Box";
+CM_ SG_ 1680 X_Rsg_Err "Event Box";
+CM_ SG_ 1680 X_Max_Pole_Hgt_Rgt "Event Box";
+CM_ SG_ 1680 X_Max_Pole_Hgt_Lft "Event Box";
+CM_ SG_ 1680 X_Pole_Hgt_Too_Diff "Event Box";
+CM_ SG_ 1680 X_No_Volt "Event Box";
+CM_ SG_ 1680 X_Max_Pole_Spd_Rgt "Event Box";
+CM_ SG_ 1680 X_Max_Pole_Spd_Lft "Event Box";
+CM_ SG_ 1680 X_No_Air_Press "Event Box";
+CM_ SG_ 1680 X_Rgt_Poles_Centered "Event Box";
+CM_ SG_ 1680 X_Lft_Pole_Centered "Event Box";
+CM_ SG_ 1680 X_Hooks_Cl "Event Box";
+CM_ SG_ 1680 X_Panto_Actv "Event Box";
+CM_ SG_ 1680 X_Swc_Refl_On "Event Box";
+CM_ SG_ 1680 X_Bat_Run "Event Box";
+CM_ SG_ 1680 X_Stop_Rising "Event Box";
+CM_ SG_ 1680 X_Stop_Lo "Event Box";
+CM_ SG_ 1680 X_Rise_Poles "Event Box";
+CM_ SG_ 1680 X_Lo_Poles "Event Box";
+CM_ SG_ 1680 X_Vh_Nt_Mov "Event Box";
+CM_ SG_ 1680 X_Panto_Volt_Pre "Event Box";
+CM_ SG_ 1379 X_DCDC_Trp "Event Box";
+CM_ SG_ 1379 S_TCU_Trp_Sys_3 "Event Box";
+CM_ SG_ 1379 S_TCU_Trp_Sys_2_VLU "Event Box";
+CM_ SG_ 1379 S_TCU_Trp_Sys_2 "Event Box";
+CM_ SG_ 1379 S_TCU_Trp_MC1 "Event Box";
+CM_ SG_ 1379 S_TCU_Trp_MC "Event Box";
+CM_ SG_ 1379 S_TCU_Trp_HC "Event Box";
+CM_ SG_ 1379 S_TCU_Trp_BCC "Event Box";
+CM_ SG_ 1379 S_TCU_Br_Sys "Event Box";
+CM_ SG_ 1379 S_TCU_Br_Mc "Event Box";
+CM_ SG_ 1379 S_TCU_Trp_AUX "Event Box";
+CM_ SG_ 1379 S_TCU_Warn_Red "Event Box";
+CM_ SG_ 1379 S_TCU_Warn "Event Box";
+CM_ SG_ 1379 S_CAN1_Not_Ops "Event Box";
+CM_ SG_ 1379 S_Sp_Ov_Volt "Event Box";
+CM_ SG_ 1379 S_Cool_Flw_Too_Lo "Event Box";
+CM_ SG_ 1379 S_Cool_Tmp_Snsr_Err "Event Box";
+CM_ SG_ 1379 S_Cool_Untmp "Event Box";
+CM_ SG_ 1379 S_Cool_Ov_Tmp "Event Box";
+CM_ SG_ 1379 S_Cool_Tmp_Hi "Event Box";
+CM_ SG_ 1379 S_Cab_Int_Fan_Op "Event Box";
+CM_ SG_ 1379 S_Cab_Tmp_Snsr_Err "Event Box";
+CM_ SG_ 1379 S_Cab_Untmp "Event Box";
+CM_ SG_ 1379 S_Cab_Ov_Tmp "Event Box";
+CM_ SG_ 1379 S_Cab_Tmp_Hi "Event Box";
+CM_ SG_ 1379 S_CAN2_Not_Ops "Event Box";
+CM_ SG_ 1378 S_Sp_Unvolt "Event Box";
+CM_ SG_ 1378 S_PEC_HW_Err "Event Box";
+CM_ SG_ 1378 S_PEC_HW_Mon_Warn "Event Box";
+CM_ SG_ 1378 S_PEC_Wdg_Err "Event Box";
+CM_ SG_ 1378 S_Cb_BC_Bat_Op "Event Box";
+CM_ SG_ 1378 S_Cb_Sp_BC_Op "Event Box";
+CM_ SG_ 1378 S_Bordline_BC_Slv_Err "Event Box";
+CM_ SG_ 1378 S_Bordline_BC_Mstr_Err "Event Box";
+CM_ SG_ 1378 S_AC_Chrg_Curr_Ref_Dv "Event Box";
+CM_ SG_ 1378 S_CtAUXloads_Err_Cl "Event Box";
+CM_ SG_ 1378 S_CtAUXloads_Err_Op "Event Box";
+CM_ SG_ 1378 S_CtACChg_Err_Cl "Event Box";
+CM_ SG_ 1378 S_CtACChg_Err_Op "Event Box";
+CM_ SG_ 1378 S_Aux_Des_Err "Event Box";
+CM_ SG_ 1378 S_Aux_Link_Err "Event Box";
+CM_ SG_ 1378 S_Aux_Pwr_Sp_Err "Event Box";
+CM_ SG_ 1378 S_Aux_Hw_Err "Event Box";
+CM_ SG_ 1378 S_Aux_RMS_Ov_Curr "Event Box";
+CM_ SG_ 1378 S_Aux_Ph_Ov_Curr_Pk "Event Box";
+CM_ SG_ 1378 S_Aux_GD_Sc "Event Box";
+CM_ SG_ 1378 S_PEBB_Ov_Tmp "Event Box";
+CM_ SG_ 1378 S_Aux_Unsymt_Curr "Event Box";
+CM_ SG_ 1378 S_U_f_Rdc_Actv_Too_Lng "Event Box";
+CM_ SG_ 1378 S_Mot_1_Init_Chk_Err "Event Box";
+CM_ SG_ 1378 S_Mot_1_Trq_Err "Event Box";
+CM_ SG_ 1378 S_Tr_Sfty_Mss "Event Box";
+CM_ SG_ 1378 S_Mot_1_Bwd_EMF_Hi "Event Box";
+CM_ SG_ 1378 S_Mot_1_Unbal_Curr "Event Box";
+CM_ SG_ 1378 S_CtSCM_Err_Cl "Event Box";
+CM_ SG_ 1378 S_CtSCM_Err_Op "Event Box";
+CM_ SG_ 1378 S_MC1_Des_Err "Event Box";
+CM_ SG_ 1378 S_MC1_Link_Err "Event Box";
+CM_ SG_ 1378 S_MC1_Pwr_Sp_Err "Event Box";
+CM_ SG_ 1378 S_MC1_HW_Err "Event Box";
+CM_ SG_ 1378 S_MC1_Curr_Snsr_Ofst_Too_Hi "Event Box";
+CM_ SG_ 1378 S_Mot_1_RMS_Ov_Curr "Event Box";
+CM_ SG_ 1378 S_Mot_1_Ph_Ov_Curr_Pk "Event Box";
+CM_ SG_ 1378 S_MC1_GD_Sc "Event Box";
+CM_ SG_ 1378 S_Mot_1_Spd_Snsr_Err "Event Box";
+CM_ SG_ 1378 S_Mot_1_Ov_Spd "Event Box";
+CM_ SG_ 1378 S_Mot_1_Tmp_Snsr_Err "Event Box";
+CM_ SG_ 1378 S_Mot_1_Ov_Tmp "Event Box";
+CM_ SG_ 1378 S_Mot_1_Tmp_Hi "Event Box";
+CM_ SG_ 1378 S_VLU_HC_Des_Err "Event Box";
+CM_ SG_ 1378 S_VLU_HC_Link_Err "Event Box";
+CM_ SG_ 1378 S_VLU_HC_Pwr_Sp_Err "Event Box";
+CM_ SG_ 1378 S_VLU_HC_HW_Err "Event Box";
+CM_ SG_ 1378 S_VLU_HC_Curr_Snsr_Ofst_Too_Hi "Event Box";
+CM_ SG_ 1378 S_HC_Ov_Curr_Pk "Event Box";
+CM_ SG_ 1378 S_VLU_Ov_Curr_Pk "Event Box";
+CM_ SG_ 1378 S_VLU_HC_GD_Sc "Event Box";
+CM_ SG_ 1378 S_HC_Sc "Event Box";
+CM_ SG_ 1378 S_VLU_Sc "Event Box";
+CM_ SG_ 1378 S_VLU_Oc "Event Box";
+CM_ SG_ 1378 S_VLU_Res_Ov_Tmp "Event Box";
+CM_ SG_ 1378 S_VLU_Res_Tmp_Hi "Event Box";
+CM_ SG_ 1378 S_Erf_DC_Link "Event Box";
+CM_ SG_ 1378 S_Psv_Dischrg_To_Err "Event Box";
+CM_ SG_ 1378 S_Volt_Inbal_DC_Link "Event Box";
+CM_ SG_ 1378 S_Unvolt_DC_Link "Event Box";
+CM_ SG_ 1378 S_Ov_Volt_DC_Link "Event Box";
+CM_ SG_ 1378 S_Aux_Curr_Snsr_Ofst_Too_Hi "Event Box";
+CM_ SG_ 1378 S_DC_In_Ov_Curr "Event Box";
+CM_ SG_ 1425 S_Panto_Conn_Cat "Event Box";
+CM_ SG_ 1425 S_Brk_Pdl_Pres "Event Box";
+CM_ SG_ 1425 S_Em_Stop_Btn "Event Box";
+CM_ SG_ 1425 S_Prk_Brk "Event Box";
+CM_ SG_ 1425 S_Lo_24V "Event Box";
+CM_ SG_ 1648 X_S14_8 "Event Box";
+CM_ SG_ 1648 X_S14_7 "Event Box";
+CM_ SG_ 1648 X_S14_5 "Event Box";
+CM_ SG_ 1648 X_S14_4 "Event Box";
+CM_ SG_ 1648 X_S14_3 "Event Box";
+CM_ SG_ 1648 X_S14_2 "Event Box";
+CM_ SG_ 1648 X_S14_1 "Event Box";
+CM_ SG_ 1648 X_S13_6 "Event Box";
+CM_ SG_ 1648 X_S13_5 "Event Box";
+CM_ SG_ 1648 X_S13_4 "Event Box";
+CM_ SG_ 1648 X_S13_3 "Event Box";
+CM_ SG_ 1648 X_S13_2 "Event Box";
+CM_ SG_ 1648 X_S13_1 "Event Box";
+CM_ SG_ 1648 X_S12_8 "Event Box";
+CM_ SG_ 1648 X_S12_7 "Event Box";
+CM_ SG_ 1648 X_S7_8 "Event Box";
+CM_ SG_ 1648 X_S7_7 "Event Box";
+CM_ SG_ 1648 X_S7_3 "Event Box";
+CM_ SG_ 1648 X_S7_2 "Event Box";
+CM_ SG_ 1648 X_S7_1 "Event Box";
+CM_ SG_ 1648 X_S6_5 "Event Box";
+CM_ SG_ 1648 X_S6_4 "Event Box";
+CM_ SG_ 1648 X_S6_3 "Event Box";
+CM_ SG_ 1648 X_S6_2 "Event Box";
+CM_ SG_ 1648 X_S6_1 "Event Box";
+CM_ SG_ 1648 X_S5_8 "Event Box";
+CM_ SG_ 1648 X_S5_7 "Event Box";
+CM_ SG_ 1648 X_S5_3 "Event Box";
+CM_ SG_ 1648 X_S5_1 "Event Box";
+CM_ SG_ 1648 X_S4_3 "Event Box";
+CM_ SG_ 1648 X_S4_1 "Event Box";
+CM_ SG_ 1648 X_S3_7 "Event Box";
+CM_ SG_ 1648 X_S3_5 "Event Box";
+CM_ SG_ 1648 X_S5_6 "Event Box";
+CM_ SG_ 1648 X_S5_2 "Event Box";
+CM_ SG_ 1648 X_S4_8 "Event Box";
+CM_ SG_ 1648 X_S4_2 "Event Box";
+CM_ SG_ 1648 X_S3_6 "Event Box";
+CM_ SG_ 1648 X_S3_3 "Event Box";
+CM_ SG_ 1648 X_S3_1 "Event Box";
+CM_ SG_ 1648 X_S1_3 "Event Box";
+CM_ SG_ 1648 X_S1_1 "Event Box";
+CM_ SG_ 1648 X_S3_4 "Event Box";
+CM_ SG_ 1648 X_S3_2 "Event Box";
+CM_ SG_ 1648 X_S1_6 "Event Box";
+CM_ SG_ 1648 X_S1_4 "Event Box";
+CM_ SG_ 1648 X_S1_2 "Event Box";
+CM_ SG_ 1632 S_Mot_Room_Fi "Event Box";
+CM_ SG_ 1632 S_Rear_Pnl_Fi "Event Box";
+CM_ SG_ 1632 S_Bat_Room_Fi "Event Box";
+CM_ SG_ 1632 S_Frnt_Pnl_Fi "Event Box";
+CM_ SG_ 1632 S_Node_6_Comm_Err "Event Box";
+CM_ SG_ 1632 S_Node_5_Comm_Err "Event Box";
+CM_ SG_ 1632 S_Node_4_Comm_Err "Event Box";
+CM_ SG_ 1632 S_Node_3_Comm_Err "Event Box";
+CM_ SG_ 1632 S_Node_2_Comm_Err "Event Box";
+CM_ SG_ 1632 S_Node_1_Comm_Err "Event Box";
+CM_ SG_ 1632 S_Fus_Chk_Comm_Err "Event Box";
+CM_ SG_ 1619 S_Psv_Cmp_Stdstl_Tm_Actv "Event Box";
+CM_ SG_ 1619 S_Psv_Cmp_Cyc_Tm_Actv "Event Box";
+CM_ SG_ 1619 S_Psv_Cndnsr_Fan_On "Event Box";
+CM_ SG_ 1619 S_Psv_Cmp_Run "Event Box";
+CM_ SG_ 1619 C_Psv_Fd_Pmp_Run "Event Box";
+CM_ SG_ 1619 S_Psv_Chiller_On "Event Box";
+CM_ SG_ 1619 C_C1_Psv_Chiller_On "Event Box";
+CM_ SG_ 1617 S_Actv_Chillers_On "Event Box";
+CM_ SG_ 1617 S_Stdst1_Tm_Cmp_Actv "Event Box";
+CM_ SG_ 1617 S_Cyc_Tm_Actv "Event Box";
+CM_ SG_ 1617 S_Cndnsr_Fan_1_On "Event Box";
+CM_ SG_ 1617 S_Cmp_Is_Run "Event Box";
+CM_ SG_ 1617 S_Fd_Pmp_Is_Run "Event Box";
+CM_ SG_ 1617 C_Actv_Chillers_On_Req "Event Box";
+CM_ SG_ 1601 S_Str_Pmp_Comm_Err "Event Box";
+CM_ SG_ 1601 S_Str_Pmp_Malfun_Ind_Lmp "Event Box";
+CM_ SG_ 1601 S_Str_Pmp_Red_Warn "Event Box";
+CM_ SG_ 1601 S_Str_Pmp_Ambr_Warn "Event Box";
+CM_ SG_ 1601 S_Str_Pmp_Em_Slip "Event Box";
+CM_ SG_ 1601 S_Str_Pmp_Em_FOC "Event Box";
+CM_ SG_ 1601 S_Str_Pmp_Err_Stat "Event Box";
+CM_ SG_ 1601 S_Mn_Ct_Stat "Event Box";
+CM_ SG_ 1601 S_Pwr_Stg_Actv_Stat "Event Box";
+CM_ SG_ 1601 S_Pwr_Stg_Actv "Event Box";
+CM_ SG_ 1600 C_Str_Pmp_Rs_Err "Event Box";
+CM_ SG_ 1600 C_Str_Pmp_Ctrl_En "Event Box";
+CM_ SG_ 1584 S_Cmp_Actv "Event Box";
+CM_ SG_ 1584 S_Air_Cmp_Stop_HVAC "Event Box";
+CM_ SG_ 1568 S_BC_Off_IL_Lim "Event Box";
+CM_ SG_ 1568 C_24V_Sp_On "Event Box";
+CM_ SG_ 1568 S_Ct_AC_Chrg_Cl "Event Box";
+CM_ SG_ 1568 S_AC_Chrg_On "Event Box";
+CM_ SG_ 1568 S_Chrg_Btn "Event Box";
+CM_ SG_ 1553 S_Cmp_Rel_Plus_Aux "Event Box";
+CM_ SG_ 1553 S_BTMS_Rel_Plus_Aux "Event Box";
+CM_ SG_ 1553 S_Cmp_Rel_Minus_Aux "Event Box";
+CM_ SG_ 1553 S_Rear_Clm_Rel_Minus_Aux "Event Box";
+CM_ SG_ 1553 S_Frnt_Clm_Rel_Minus_Aux "Event Box";
+CM_ SG_ 1553 C_Cmp_Rel_Plus "Event Box";
+CM_ SG_ 1553 C_BTMS_Rel_Plus "Event Box";
+CM_ SG_ 1553 C_Rear_Clm_Rel_Plus "Event Box";
+CM_ SG_ 1553 C_Frnt_Clm_Rel_Plus "Event Box";
+CM_ SG_ 1553 S_CtAC1_Cl_Stat_Aux "Event Box";
+CM_ SG_ 1553 S_CtAC1_Cl_Req "Event Box";
+CM_ SG_ 1553 S_Ct_Aux_Loads_Cl "Event Box";
+CM_ SG_ 1552 S_Aux_Red "Event Box";
+CM_ SG_ 1552 S_400V_Sp_On "Event Box";
+CM_ SG_ 1552 C_400V_Sp_On "Event Box";
+CM_ SG_ 1536 S_HC_Off_IL_Lim "Event Box";
+CM_ SG_ 1536 S_Heat_On "Event Box";
+CM_ SG_ 1536 C_Heat_On "Event Box";
+CM_ SG_ 1424 S_ESS_On "Event Box";
+CM_ SG_ 1424 S_HV_On "Event Box";
+CM_ SG_ 1424 S_SW_Upd_En "Event Box";
+CM_ SG_ 1424 S_Cool_Ok "Event Box";
+CM_ SG_ 1424 S_ECAS_Comm_Err "Event Box";
+CM_ SG_ 1424 S_Ops_Acc "Event Box";
+CM_ SG_ 1424 S_Ops_Bcu "Event Box";
+CM_ SG_ 1408 S_Str_Ang_Snsr_Comm_Err "Event Box";
+CM_ SG_ 1408 X_Str_Snsr_Cal "Event Box";
+CM_ SG_ 1392 S_Artc_Comm_Err "Event Box";
+CM_ SG_ 1392 S_Artc_Intl_Actv "Event Box";
+CM_ SG_ 1392 S_Artc_Warn_Buz_3 "Event Box";
+CM_ SG_ 1392 S_Artc_Warn_Buz_2 "Event Box";
+CM_ SG_ 1392 S_Artc_Warn_Buz_1 "Event Box";
+CM_ SG_ 1392 S_Artc_Err_Lmp "Event Box";
+CM_ SG_ 1392 S_Artc_Warn_Lmp "Event Box";
+CM_ SG_ 1392 S_Artc_Em_Rls "Event Box";
+CM_ SG_ 1360 S_IMD_Insu_Warn_Strup "Event Box";
+CM_ SG_ 1360 S_BMS2_Gen_Warn "Event Box";
+CM_ SG_ 1360 S_BMS2_Mstr_CFG_Err "Event Box";
+CM_ SG_ 1360 S_BMS2_Mstr_SW_Err "Event Box";
+CM_ SG_ 1360 S_BMS2_Mstr_HW_Err "Event Box";
+CM_ SG_ 1360 S_BMS2_Slv_Md_HW_Err "Event Box";
+CM_ SG_ 1360 S_BMS2_SPI_Com_Err "Event Box";
+CM_ SG_ 1360 S_BMS2_CAN_Hrbeat_Err "Event Box";
+CM_ SG_ 1360 S_BMS1_Gen_Warn "Event Box";
+CM_ SG_ 1360 S_BMS1_Mstr_CFG_Err "Event Box";
+CM_ SG_ 1360 S_BMS1_Mstr_SW_Err "Event Box";
+CM_ SG_ 1360 S_BMS1_Mstr_HW_Err "Event Box";
+CM_ SG_ 1360 S_BMS1_Slv_Md_HW_Err "Event Box";
+CM_ SG_ 1360 S_BMS1_SPI_Com_Err "Event Box";
+CM_ SG_ 1360 S_BMS1_CAN_Hrbeat_Err "Event Box";
+CM_ SG_ 1360 S_IMD_Insu_Warn_Ops "Event Box";
+CM_ SG_ 1360 S_IMD_Insu_Al_Ops "Event Box";
+CM_ SG_ 1360 S_IMD_Insu_Al_Strup "Event Box";
+CM_ SG_ 1360 S_IMD_Self_Tst_Err "Event Box";
+CM_ SG_ 1360 S_IMD_Wi_Intrpt_Func_Err "Event Box";
+CM_ SG_ 1360 S_PEC_HW_FW_Err "Event Box";
+CM_ SG_ 1360 S_CtCh_Ct_Err "Event Box";
+CM_ SG_ 1360 S_CtNeg_Ct_Err "Event Box";
+CM_ SG_ 1360 S_CtPos_Ct_Err "Event Box";
+CM_ SG_ 1360 S_St_I_MssMc "Event Box";
+CM_ SG_ 1360 S_Bat_I_MssMc "Event Box";
+CM_ SG_ 1360 S_Bat_V_Mss "Event Box";
+CM_ SG_ 1360 S_TrpLn_Op "Event Box";
+CM_ SG_ 1360 S_VCU_CAN_Hrbeat_Err "Event Box";
+CM_ SG_ 1360 S_Bat_Cell_Unbal "Event Box";
+CM_ SG_ 1360 S_ESS_SOC_Hi "Event Box";
+CM_ SG_ 1360 S_ESS_SOC_Lo "Event Box";
+CM_ SG_ 1360 S_ESS_Cont_Curr_Der "Event Box";
+CM_ SG_ 1360 S_Bat_Cell_Un_Tmp "Event Box";
+CM_ SG_ 1360 S_Bat_Cell_Ov_Tmp "Event Box";
+CM_ SG_ 1360 S_Bat_Cell_Un_Volt "Event Box";
+CM_ SG_ 1360 S_Bat_Cell_Ov_Volt "Event Box";
+CM_ SG_ 1360 S_ESS_Ovld "Event Box";
+CM_ SG_ 1360 S_ESS_Ov_Curr "Event Box";
+CM_ SG_ 1360 S_PreChrg_To_Err "Event Box";
+CM_ SG_ 1360 S_PreChrg_Ovrld_Err "Event Box";
+CM_ SG_ 1360 S_PreChrg_Inh_Volt_Hi "Event Box";
+CM_ SG_ 1360 S_PreChrg_Inh_Engy_Hi "Event Box";
+CM_ SG_ 1360 S_TrpLn_Op_In_Ops "Event Box";
+CM_ SG_ 1360 S_TrpLn_OT_Sw_Op "Event Box";
+CM_ SG_ 1344 C_Cl_Ct_Neg "Event Box";
+CM_ SG_ 1344 C_Disconn_Bat "Event Box";
+CM_ SG_ 1344 C_Conn_Bat "Event Box";
+CM_ SG_ 1344 C_Bat_Rs_Cnt "Event Box";
+CM_ SG_ 1344 C_Bat_VCU_Rdy "Event Box";
+CM_ SG_ 1344 C_Bat_IMD_Off "Event Box";
+CM_ SG_ 1328 S_Out_Temp_Choke_Snsr "Event Box";
+CM_ SG_ 1328 S_CAN_Bus "Event Box";
+CM_ SG_ 1328 S_In_Out_Curr_Snsr "Event Box";
+CM_ SG_ 1328 S_Out_Curr_Snsr "Event Box";
+CM_ SG_ 1328 S_In_Curr_Snsr "Event Box";
+CM_ SG_ 1328 S_In_Choke_Tmp_Snsr "Event Box";
+CM_ SG_ 1328 S_Tf_Temp_Snsr "Event Box";
+CM_ SG_ 1328 S_Fus_Minus_Pole "Event Box";
+CM_ SG_ 1328 S_Fus_Plus_Pole "Event Box";
+CM_ SG_ 1328 S_SW_Trp_Ovr_Curr_Volt "Event Box";
+CM_ SG_ 1328 S_HW_Trp_Ovr_Curr_Volt "Event Box";
+CM_ SG_ 1328 S_Pwr_Sp_Unit "Event Box";
+CM_ SG_ 1328 S_Chrg_In_Filt "Event Box";
+CM_ SG_ 1328 S_Amb_Tmp_Too_Lo "Event Box";
+CM_ SG_ 1328 S_Trans_Cnv "Event Box";
+CM_ SG_ 1328 S_Wrg_Tmp_Meas_Heat_Sink "Event Box";
+CM_ SG_ 1328 S_Ovr_Heat_In_Choke "Event Box";
+CM_ SG_ 1328 S_Tf_Ovr_Heat "Event Box";
+CM_ SG_ 1328 S_Volt_Meas_Trp "Event Box";
+CM_ SG_ 1328 S_Ovr_Heat_Sink "Event Box";
+CM_ SG_ 1328 S_Insu_2_Rel "Event Box";
+CM_ SG_ 1328 S_Insu_1_Rel "Event Box";
+CM_ SG_ 1328 S_PreChrg_Ct "Event Box";
+CM_ SG_ 1328 S_Ln_Ct_2 "Event Box";
+CM_ SG_ 1328 S_Ln_Ct_1 "Event Box";
+CM_ SG_ 1328 S_Ovr_Heat_Out_Choke "Event Box";
+CM_ SG_ 1328 S_Sc_Mod "Event Box";
+CM_ SG_ 1328 S_Out_Ovr_Volt "Event Box";
+CM_ SG_ 1328 S_Ln_Over_Volt "Event Box";
+CM_ SG_ 1328 S_Curr_Ovrld "Event Box";
+CM_ SG_ 1297 S_PM_Lim "Event Box";
+CM_ SG_ 1297 S_MC_Lim "Event Box";
+CM_ SG_ 1297 S_ASR_Off_Fdbk "Event Box";
+CM_ SG_ 1297 S_ASR_Off_Req "Event Box";
+CM_ SG_ 1297 S_Drv_Rls "Event Box";
+CM_ SG_ 1297 S_Mot1_On "Event Box";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "BusType" "CAN";
+VAL_ 3221225472 S_BTMS_Rel_Minus_Req 1 "Active" 0 "Not Active" ;
+VAL_ 3221225472 X_E_Psng1_24V_Cosu_kWh 65535 "Not Defined Value" ;
+VAL_ 3221225472 S_HVAC_R1_EVAP_Err 1 "Active" 0 "Not Active" ;
+VAL_ 3221225472 S_TCU_Tpln_Mot 1 "Active" 0 "Not Active" ;
+VAL_ 3221225472 X_T_HVAC_Drv_Setpnt 255 "Not Available" 254 "Error" ;
+VAL_ 3221225472 S_MLC_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 3221225472 X_Bat_Bal_Alw 3 "Not Available" 2 "Error" 1 "True" 0 "False" ;
+VAL_ 3221225472 X_P_BCCU 65535 "Not Defined Value" ;
+VAL_ 3221225472 X_S6_6 1 "Not Blow" 0 "Blow" ;
+VAL_ 1812 X_ESS_SW_Ver_REV 255 "Not Defined Value" ;
+VAL_ 1812 X_ESS_SW_Ver_MIN 255 "Not Defined Value" ;
+VAL_ 1812 X_ESS_SW_Ver_MAJ 255 "Not Defined Value" ;
+VAL_ 1024 S_Err_Cl_Req 1 "Active" 0 "Not Active" ;
+VAL_ 1024 S_Err_Rx_Req 1 "Active" 0 "Not Active" ;
+VAL_ 1024 S_Para_Rx_Req 1 "Active" 0 "Not Active" ;
+VAL_ 1024 S_Para_Wr_Req 1 "Active" 0 "Not Active" ;
+VAL_ 1024 S_Para_Page_Act 1 "Active" 0 "Not Active" ;
+VAL_ 1024 X_User_ID 255 "Not Defined" ;
+VAL_ 1428 X_Trp_Distn -1 "Not Defined Value" ;
+VAL_ 1381 S_Set_TCU_Lo_24V 1 "Active" 0 "Not Active" ;
+VAL_ 1381 S_TCU_Stat_TCU_Tmout 1 "Active" 0 "Not Active" ;
+VAL_ 1381 S_TCU_Stat_Sp_Zr 1 "Active" 0 "Not Active" ;
+VAL_ 1381 S_TCU_Stat_Ign_Off 1 "Active" 0 "Not Active" ;
+VAL_ 1381 S_TCU_Stat_ECU_Not_Rdy 1 "Active" 0 "Not Active" ;
+VAL_ 1381 S_TCU_Stat_AC_Chrg_Req 1 "Active" 0 "Not Active" ;
+VAL_ 515 X_Odo_Set -1 "Not Defined Value" ;
+VAL_ 514 S_SW_Can_Upd 1 "Active" 0 "Not Active" ;
+VAL_ 1671 X_E_Psng1_24V_Cosu_Wh 65535 "Not Defined Value" ;
+VAL_ 1888 C_ECU_IO_Trpln_Em_Stop 1 "Active" 0 "Not Active" ;
+VAL_ 1888 C_ECU_IO_ESS_24V_Kl15_Rel 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_PS2_Batt_DC_Fus_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_PS1_Batt_DC_Fus_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_Fi_Wi 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_ESS_Kl30_Fus_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_ESS_Kl15_Fus_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_ESS_Insu_Ok 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_ESS_Disconn 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_Em_Stop_Trp_Fus_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_ECU_CPU_Sp_Fus_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_Aux_Ct_5 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_Aux_Ct_4 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_Aux_Ct_3 1 "Active" 0 "Not Active" ;
+VAL_ 1888 S_ECU_IO_Aux_Ct_2 1 "Active" 0 "Not Active" ;
+VAL_ 513 X_Month_Interface 255 "Not Defined Value" ;
+VAL_ 513 X_Day_Interface 255 "Not Defined Value" ;
+VAL_ 513 X_Hour_Interface 255 "Not Defined Value" ;
+VAL_ 513 X_Minute_Interface 255 "Not Defined Value" ;
+VAL_ 1427 X_Daily_Drv 65535 "Not Defined Value" ;
+VAL_ 1427 S_DWP_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1427 S_Diagnose_Comm_Error 1 "Active" 0 "Not Active" ;
+VAL_ 1427 S_MLC_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1427 S_ESS_Comm_Error 1 "Active" 0 "Not Active" ;
+VAL_ 1427 S_TCU_Comm_Error 1 "Active" 0 "Not Active" ;
+VAL_ 1427 S_Halt_Brk_Sw 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1427 S_Halt_Brk_Req 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1427 S_Ign_Lv_3 1 "Active" 0 "Not Active" ;
+VAL_ 1427 S_Ign_Lv_2 1 "Active" 0 "Not Active" ;
+VAL_ 1427 S_Ign_Lv_1 1 "Active" 0 "Not Active" ;
+VAL_ 1298 S_Init_Chk_MC 1 "Active" 0 "Not Active" ;
+VAL_ 1298 C_Init_Chk_MC_Alw 1 "Active" 0 "Not Active" ;
+VAL_ 1298 S_Aux_Off_IL_Lim 1 "Active" 0 "Not Active" ;
+VAL_ 1380 X_M_Mot_1 65535 "Not_Available" ;
+VAL_ 1380 S_TCU_Trpln_ESS 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1380 S_TCU_Trpln_DCDC 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1377 C_Mot_1_On 3 "Don't care/take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 1377 C_Dis_Slsl 3 "Don't care/take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 1377 S_TCU_TrpLn_Mot 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1377 C_Rs_Trp 3 "Don't care/take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 1377 X_T_Cnv_Air 255 "Not Defined Value" ;
+VAL_ 1377 X_TCU_Lf 255 "Not Defined Value" ;
+VAL_ 1377 C_TrpLn_Tst 3 "Don't care/take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 1377 C_Sys_On 3 "Don't care/take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 1377 S_Sys_On 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1377 S_Sys_Rdy 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1377 S_OK_To_Conn 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1377 S_Initialized 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1377 X_TCU_Stat_No 255 "Not Defined Value" ;
+VAL_ 1622 X_C1_Psv_Fd_Pmp_Spd 255 "Not Defined Value" ;
+VAL_ 1622 X_C1_Psv_Fan_Spd 255 "Not Defined Value" ;
+VAL_ 1621 S_C1_Psv_On_Off 1 "Active" 0 "Not Active" ;
+VAL_ 1621 S_C1_Psv_Fd_Pmp_Run 1 "Active" 0 "Not Active" ;
+VAL_ 1621 S_C1_Psv_Spd_Adj_Pmp 1 "Active" 0 "Not Active" ;
+VAL_ 1621 S_C1_Psv_Ref_Probe_Avl 1 "Active" 0 "Not Active" ;
+VAL_ 1621 S_C1_Psv_Ctrl 1 "Active" 0 "Not Active" ;
+VAL_ 1621 S_C1_Psv_Rtn_Tmp_Avl 1 "Active" 0 "Not Active" ;
+VAL_ 1621 S_C1_Psv_Fd_Tmp_Avl 1 "Active" 0 "Not Active" ;
+VAL_ 1621 X_Psv_Cont_Min_Spd_Fan 255 "Not Defined Value" ;
+VAL_ 1621 X_T_Psv_Min_Lim 255 "Not Defined Value" ;
+VAL_ 1621 X_C1_Psv_Pmp_Spd_Setpt 255 "Not Defined Value" ;
+VAL_ 1621 X_T_Psv_Max_Lim 255 "Not Defined Value" ;
+VAL_ 1669 X_E_Cosu_Tot_Wh 65535 "Not Defined Value" ;
+VAL_ 1668 X_E_Psng2_AC_Cosu_kWh 65535 "Not Defined Value" ;
+VAL_ 1668 X_E_Psng1_AC_Cosu_kWh 65535 "Not Defined Value" ;
+VAL_ 1668 X_E_Drv_24V_Cosu_kWh 65535 "Not Defined Value" ;
+VAL_ 1668 X_E_Drv_750V_Cosu_kWh 65535 "Not Defined Value" ;
+VAL_ 1620 S_Psv_BTMS_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_BTMS_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Cat_5_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Cat_4_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Cat_3_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Cat_2_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Cat_1_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Psv_Btms_Sys_Err_1 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Ovrld_Fus_Fan 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_No_Dev_Typ_Sel 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Ovrld_Fd_Pmp 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Ovrld_Refri_Cmp 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Err_1_Cndnsr 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_All_Tmp_Probe_Cool_Med_Defec 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Lo_Pr_Probe_Refri_Cir_Defec 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Hi_Pr_Probe_Refri_Cir_Defec 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Tmp_Probe_Rtn_Flw_Defec 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Tmp_Probe_Fd_Flw_Defec 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Less_Pr_Refri_Cir 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Al_Wtr_Less 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_SW_Lo_Pr_Al 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Hi_Pr_Swc_Off 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_SW_Hi_Pr_Swc_Off 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Max_Rtn_Flw_Tmp_Excd 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Rtn_Tmp_Too_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Diff_Tmp_Too_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_Wtr_Warn_Less 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_PsvErr_12 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_PsvErr_11 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_PsvErr_10 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_PsvErr_9 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_PsvErr_8 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_PsvErr_7 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_PsvErr_6 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_PsvErr_5 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_PsvErr_4 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_PsvErr_3 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_PsvErr_2 1 "Active" 0 "Not Active" ;
+VAL_ 1620 S_PsvErr_1 1 "Active" 0 "Not Active" ;
+VAL_ 1569 X_E_Chrg -1 "Not Defined Value" ;
+VAL_ 1667 X_E_Psng2_24V_Cosu_Wh 65535 "Not Defined Value" ;
+VAL_ 1856 S_Dr_4_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_False 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Pos_In_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Snsr_Pwr_Sp_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Pos_Snsr_Pwr_Sp_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Pwr_Sp_V1_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Pwr_Sp_Vbat_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Elec_Mot_Brk_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Elec_Mot_Brk_Op_Load 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Elec_Mot_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Elec_Mot_Op_Load 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Err_On_Sens_Edge 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Entrance_Lgt_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Buz_Sc_Det 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_4_Sens_Edge 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_False 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Entrance_Lgt_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Pos_In_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Snsr_Pwr_Sp_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Pos_Snsr_Pwr_Sp_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Pwr_Sp_V1_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Pwr_Sp_Vbat_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Elec_Mot_Brk_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Elec_Mot_Brk_Op_Load 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Elec_Mot_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Elec_Mot_Op_Load 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Err_On_Sens_Edge 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Buz_Sc_Det 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_3_Sens_Edge 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Snsr_Pwr_Sp_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Elec_Mot_Brk_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Elec_Mot_Brk_Op_Load 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_False 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Pos_In_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Pos_Snsr_Pwr_Sp_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Pwr_Sp_V1_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Pwr_Sp_Vbat_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Elec_Mot_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Elec_Mot_Op_Load 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Err_On_Sens_Edge 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Entrance_Lgt_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Buz_Sc_Det 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_2_Sens_Edge 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_False 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Pos_In_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Snsr_Pwr_Sp_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Pos_Snsr_Pwr_Sp_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Pwr_Sp_V1_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Pwr_Sp_Vbat_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Elec_Mot_Brk_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Elec_Mot_Brk_Op_Load 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Elec_Mot_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Elec_Mot_Op_Load 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Err_On_Sens_Edge 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Entrance_Lgt_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Buz_Sc_Det 1 "Active" 0 "Not Active" ;
+VAL_ 1856 S_Dr_1_Sens_Edge 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Aut_Dr_Rls 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_4_Em_Swc_In_Stat 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_4_Spare_In_3_Stat 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_4_Opng 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_4_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_4_Obs 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_4_Clng 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_4_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_3_Em_Swc_In_Stat 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_3_Spare_In_3_Stat 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_3_Opng 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_3_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_3_Obs 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_3_Clng 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_3_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_2_Em_Swc_In_Stat 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_2_Spare_In_3_Stat 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_2_Opng 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_2_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_2_Obs 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_2_Clng 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_2_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_1_Rgt_Leaf_Opng 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_1_Rgt_Leaf_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_1_Rgt_Leaf_Clng 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_1_Rgt_Leaf_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_1_Spare_In_3_Stat 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_1_Opng 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_1_Lft_Leaf_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_1_Clng 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_1_Lft_Leaf_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1840 S_Dr_1_Em_Swc_In_Stat 1 "Active" 0 "Not Active" ;
+VAL_ 1824 X_Knee_Info 13 "not defined" 12 "not defined" 11 "not defined" 10 "not defined" 9 "not defined" 8 "not defined" 7 "not defined" 6 "not defined" 5 "not defined" 4 "Kneeling aborted" 3 "lifting active;" 2 "Kneeling level reached" 1 "Lowering active" 0 "Not active" ;
+VAL_ 1824 X_ECAS_Nom_Lv_Rear_Axl 13 "Not defined" 12 "Not defined" 11 "Not defined" 10 "Not defined" 9 "Not defined" 8 "Not defined" 7 "Lower Level" 6 "Upper Level" 5 "Customer Level" 4 "Preset Level" 3 "Normal Level 3" 2 "Normal Level 2" 1 "Normal Level 1" 0 "Level not specified" ;
+VAL_ 1824 X_ECAS_Nom_Lv_Frnt_Axl 13 "Not defined" 12 "Not defined" 11 "Not defined" 10 "Not defined" 9 "Not defined" 8 "Not defined" 7 "Lower Level" 6 "Upper Level" 5 "Customer Level" 4 "Preset Level" 3 "Normal Level 3" 2 "Normal Level 2" 1 "Normal Level 1" 0 "Level not specified" ;
+VAL_ 1824 X_ECAS_Nom_Lv_Req_Rear_Axl 13 "not defined" 12 "not defined" 11 "not defined" 10 "not defined" 9 "not defined" 8 "Stop level change" 7 "Lower level" 6 "Upper level" 5 "Customer Level " 4 "Preset Level" 3 "Normal Level 3" 2 "Normal Level 2" 1 "Normal Level 1" 0 "No level request" ;
+VAL_ 1824 X_ECAS_Nom_Lv_Req_Frnt_Axl 13 "not defined" 12 "not defined" 11 "not defined" 10 "not defined" 9 "not defined" 8 "Stop level change" 7 "Lower level" 6 "Upper level" 5 "Customer Level " 4 "Preset Level" 3 "Normal Level 3" 2 "Normal Level 2" 1 "Normal Level 1" 0 "No level request" ;
+VAL_ 1824 S_Knee_Req 1 "Active" 0 "Not Active" ;
+VAL_ 512 S_Sys_Off_Btn 1 "Active" 0 "Not Active" ;
+VAL_ 512 S_Sys_On_Btn 1 "Active" 0 "Not Active" ;
+VAL_ 512 S_Cmp_Run_Req 1 "Active" 0 "Not Active" ;
+VAL_ 512 S_Clear_Err_Hist 1 "Active" 0 "Not Active" ;
+VAL_ 512 S_EM_Stop_Btn_Interface 1 "Active" 0 "Not Active" ;
+VAL_ 512 S_Str_Ang_Cal_Req 1 "Active" 0 "Not Active" ;
+VAL_ 512 S_Trpln_Tst_Btn 1 "Active" 0 "Not Active" ;
+VAL_ 512 S_Rs_Trp_Btn 1 "Active" 0 "Not Active" ;
+VAL_ 1810 X_VCU_SW_Ver_Rev 255 "Not Defined Value" ;
+VAL_ 1810 X_DWP_SW_Ver_Rev 255 "Not Defined Value" ;
+VAL_ 1810 X_DWP_SW_Ver_Maj 255 "Not Defined Value" ;
+VAL_ 1810 X_DWP_SW_Ver_Min 255 "Not Defined Value" ;
+VAL_ 1809 X_BTMS_SW_Ver_Rev 255 "Not Defined Value" ;
+VAL_ 1809 X_VCU_SW_Ver_Maj 255 "Not Defined Value" ;
+VAL_ 1809 X_VCU_SW_Ver_Min 255 "Not Defined Value" ;
+VAL_ 1809 X_ECU_SW_Ver_Rev 255 "Not Defined Value" ;
+VAL_ 1809 X_ECU_SW_Ver_Maj 255 "Not Defined Value" ;
+VAL_ 1809 X_ECU_SW_Ver_Min 255 "Not Defined Value" ;
+VAL_ 1809 X_BTMS_SW_Ver_Maj 255 "Not Defined Value" ;
+VAL_ 1809 X_BTMS_SW_Ver_Min 255 "Not Defined Value" ;
+VAL_ 1808 X_TCU_SW_Ver_BCC 65535 "Not Defined Value" ;
+VAL_ 1808 X_TCU_SW_Ver_REV 255 "Not Defined Value" ;
+VAL_ 1808 X_TCU_SW_Ver_MIN 255 "Not Defined Value" ;
+VAL_ 1808 X_TCU_SW_Ver_MAJ 255 "Not Defined Value" ;
+VAL_ 1795 S_HVAC_R1_EVAP_Err_Thstat 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_R1_EVAP_Err_Alws_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_Pass_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_FW_Flp_Ret_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_W2_R2_No_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_W2_R2_Alws_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_W2_R1_Alws_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_W2_Ice_EVAP_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_W1_R2_Alws_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_W1_R1_Alws_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_W1_EVAP_Err_No_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_Slv_2_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_Ovr_Tmp_Cmp2_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_W2_R1_No_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_W1_R2_No_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_W1_R1_No_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_Slv1_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_Ovr_Tmp_Cmp1_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_LP2_Transdu_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_LP2_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_km2_Err_No_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_km2_Err_Alws_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_HP2_Transdu_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_HP2_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_LP1_Transdu_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_LP1_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_km1_Err_No_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_km1_Err_Alws_Ret 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_HP1_Transdu 1 "Active" 0 "Not Active" ;
+VAL_ 1795 S_HVAC_HP1_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1794 S_Stat_Drv_Mode_Vent 1 "Active" 0 "Not Active" ;
+VAL_ 1794 S_Stat_Drv_Mode_Heat 1 "Active" 0 "Not Active" ;
+VAL_ 1794 S_Stat_Drv_Mode_Cool 1 "Active" 0 "Not Active" ;
+VAL_ 1794 X_P_HVAC_AC_W1 255 "Not Available" 254 "Error" ;
+VAL_ 1794 X_E_HVAC_Daily 255 "Not Available" 254 "Error" ;
+VAL_ 1794 X_T_HVAC_Chn 255 "Not Available" 254 "Error" ;
+VAL_ 1794 X_T_HVAC_Drv_Insd 255 "Not Available" 254 "Error" ;
+VAL_ 1794 X_T_HVAC_Drv_Outsd 255 "Not Available" 254 "Error" ;
+VAL_ 1794 X_T_HVAC_W2_Insd 255 "Not Available" 254 "Error" ;
+VAL_ 1793 X_T_HVAC_W2_Outsd 255 "Not Available" 254 "Error" ;
+VAL_ 1793 X_T_HVAC_Psng_Setpnt 255 "Not Available" 254 "Error" ;
+VAL_ 1793 X_T_HVAC_W1_Insd 255 "Not Available" 254 "Error" ;
+VAL_ 1793 X_T_HVAC_W1_Outsd 255 "Not Available" 254 "Error" ;
+VAL_ 1793 X_HVAC_Runtm_Min 255 "Not Available" 254 "Error" ;
+VAL_ 1793 X_HVAC_Runtm_Hour 255 "Not Available" 254 "Error" ;
+VAL_ 1793 X_P_HVAC_AC_W2 255 "Not Available" 254 "Error" ;
+VAL_ 1793 X_P_HVAC_24VDC_W2 255 "Not Available" 254 "Error" ;
+VAL_ 1792 S_HVAC_Rs_Req 1 "Active" 0 "Not Active" ;
+VAL_ 1792 C_Air_Cmp_Not_Run 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Stat_Psng2_Mode_Cool 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Stat_Psng2_Mode_Heat 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Stat_Psng1_Mode_Cool 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Stat_Psng1_Mode_Heat 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Psng2_Alw_Rtn 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Psng2_No_Rtn 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Psng1_Alw_Rtn 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Psng1_No_Rtn 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Drv_Alw_Rtn 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Drv_No_Rtn 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_HVAC_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1792 X_P_HVAC_24VDC_W1 255 "Not Available" 254 "Error" ;
+VAL_ 1792 X_P_HVAC_750V_Drv_Cbn 255 "Not Available" 254 "Error" ;
+VAL_ 1792 X_P_HVAC_24VDC_Drv_Cbn 255 "Not Available" 254 "Error" ;
+VAL_ 1792 S_Stat_Psng2_Mode_Vent 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Stat_Psng1_Mode_Vent 1 "Active" 0 "Not Active" ;
+VAL_ 1792 Z_Stat_Eco_Mode 1 "Active" 0 "Not Active" ;
+VAL_ 1792 X_HVAC_Lf_B 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Stat_Dmst_On 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Stat_DcLk_Disconn_Req 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Stat_Pwr_Sp 1 "Active" 0 "Not Active" ;
+VAL_ 1792 Z_Stat_Frc_On 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Stat_HVAC_On 1 "Active" 0 "Not Active" ;
+VAL_ 1792 X_Lf_Cnt 1 "Active" 0 "Not Active" ;
+VAL_ 1792 Z_Eco_Mode_On 1 "Active" 0 "Not Active" ;
+VAL_ 1792 Z_Cvd19_On 1 "Active" 0 "Not Active" ;
+VAL_ 1792 Z_Psng_HVAC_On 1 "Active" 0 "Not Active" ;
+VAL_ 1792 Z_HVAC_On 1 "Active" 0 "Not Active" ;
+VAL_ 1792 S_Pwr_Sp 1 "Active" 0 "Not Active" ;
+VAL_ 1681 X_Horz_Ang_Rgt 255 "Not Defined Value" ;
+VAL_ 1681 X_Horz_Ang_Lft 255 "Not Defined Value" ;
+VAL_ 1681 X_Vert_Ang_Rgt 255 "Not Defined Value" ;
+VAL_ 1681 X_Vert_Ang_Lft 255 "Not Defined Value" ;
+VAL_ 1681 X_Err_Code 255 "Not Defined Value" ;
+VAL_ 1681 X_P_Heat 255 "Not Defined Value" ;
+VAL_ 1681 X_T_Panto 255 "Not Defined Value" ;
+VAL_ 1681 X_Poles_Stat 255 "Not Defined Value" ;
+VAL_ 1680 X_Max_Pole_Horz_Ang_Lft 1 "Active" 0 "Not Active" ;
+VAL_ 1680 S_Panto_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Em_Dwn 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Poles_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Max_Pole_Horz_Ang_Rgt 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Poles_Out_Trol 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Poles_Interm_Pos 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Poles_Go_Dwn 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Poles_Go_Up 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Poles_Lck 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Poles_In_Hooks 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Poles_Dwn 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Poles_Up 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Pr_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Rsg_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Max_Pole_Hgt_Rgt 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Max_Pole_Hgt_Lft 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Pole_Hgt_Too_Diff 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_No_Volt 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Max_Pole_Spd_Rgt 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Max_Pole_Spd_Lft 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_No_Air_Press 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Rgt_Poles_Centered 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Lft_Pole_Centered 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Hooks_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Panto_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Swc_Refl_On 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Bat_Run 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Stop_Rising 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Stop_Lo 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Rise_Poles 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Lo_Poles 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Vh_Nt_Mov 1 "Active" 0 "Not Active" ;
+VAL_ 1680 X_Panto_Volt_Pre 1 "Active" 0 "Not Active" ;
+VAL_ 1379 X_DCDC_Trp 3 "DCDC_Trip_Not_Available" 2 "DCDC_Trip_Error" 1 "DCDC_Trip_Active" 0 "DCDC_Trip_Not_Active" ;
+VAL_ 1379 S_TCU_Trp_Sys_3 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1379 S_TCU_Trp_Sys_2_VLU 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1379 S_TCU_Trp_Sys_2 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1379 S_TCU_Trp_MC1 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1379 S_TCU_Trp_MC 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1379 S_TCU_Trp_HC 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1379 S_TCU_Trp_BCC 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1379 S_TCU_Br_Sys 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1379 S_TCU_Br_Mc 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1379 S_TCU_Trp_AUX 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1379 S_TCU_Warn_Red 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1379 S_TCU_Warn 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1379 S_ESS_Trp 3 "Not Available" 2 "Error" 1 "ESS Trip Active" 0 "ESS Trip Not Active" ;
+VAL_ 1379 S_CAN1_Not_Ops 1 "Active" 0 "Not Active" ;
+VAL_ 1379 S_Sp_Ov_Volt 1 "Active" 0 "Not Active" ;
+VAL_ 1379 S_Cool_Flw_Too_Lo 1 "Active" 0 "Not Active" ;
+VAL_ 1379 S_Cool_Tmp_Snsr_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1379 S_Cool_Untmp 1 "Active" 0 "Not Active" ;
+VAL_ 1379 S_Cool_Ov_Tmp 1 "Active" 0 "Not Active" ;
+VAL_ 1379 S_Cool_Tmp_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1379 S_Cab_Int_Fan_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1379 S_Cab_Tmp_Snsr_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1379 S_Cab_Untmp 1 "Active" 0 "Not Active" ;
+VAL_ 1379 S_Cab_Ov_Tmp 1 "Active" 0 "Not Active" ;
+VAL_ 1379 S_Cab_Tmp_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1379 S_CAN2_Not_Ops 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Sp_Unvolt 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_PEC_HW_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_PEC_HW_Mon_Warn 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_PEC_Wdg_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Cb_BC_Bat_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Cb_Sp_BC_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Bordline_BC_Slv_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Bordline_BC_Mstr_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_AC_Chrg_Curr_Ref_Dv 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_CtAUXloads_Err_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_CtAUXloads_Err_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_CtACChg_Err_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_CtACChg_Err_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Aux_Des_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Aux_Link_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Aux_Pwr_Sp_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Aux_Hw_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Aux_RMS_Ov_Curr 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Aux_Ph_Ov_Curr_Pk 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Aux_GD_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_PEBB_Ov_Tmp 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Aux_Unsymt_Curr 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_U_f_Rdc_Actv_Too_Lng 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Mot_1_Init_Chk_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Mot_1_Trq_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Tr_Sfty_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Mot_1_Bwd_EMF_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Mot_1_Unbal_Curr 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_CtSCM_Err_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_CtSCM_Err_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_MC1_Des_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_MC1_Link_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_MC1_Pwr_Sp_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_MC1_HW_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_MC1_Curr_Snsr_Ofst_Too_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Mot_1_RMS_Ov_Curr 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Mot_1_Ph_Ov_Curr_Pk 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_MC1_GD_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Mot_1_Spd_Snsr_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Mot_1_Ov_Spd 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Mot_1_Tmp_Snsr_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Mot_1_Ov_Tmp 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Mot_1_Tmp_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_VLU_HC_Des_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_VLU_HC_Link_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_VLU_HC_Pwr_Sp_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_VLU_HC_HW_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_VLU_HC_Curr_Snsr_Ofst_Too_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_HC_Ov_Curr_Pk 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_VLU_Ov_Curr_Pk 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_VLU_HC_GD_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_HC_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_VLU_Sc 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_VLU_Oc 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_VLU_Res_Ov_Tmp 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_VLU_Res_Tmp_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Erf_DC_Link 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Psv_Dischrg_To_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Volt_Inbal_DC_Link 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Unvolt_DC_Link 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Ov_Volt_DC_Link 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_Aux_Curr_Snsr_Ofst_Too_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1378 S_DC_In_Ov_Curr 1 "Active" 0 "Not Active" ;
+VAL_ 1426 X_Tot_Dist -1 "Not Defined Value" ;
+VAL_ 1425 X_Rmn_Dist 255 "Not Defined Value" ;
+VAL_ 1425 X_Vh_Spd 65535 "Not Defined Value" ;
+VAL_ 1425 S_Panto_Conn_Cat 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1425 S_Brk_Pdl_Pres 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1425 S_Em_Stop_Btn 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1425 S_Prk_Brk 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1425 S_Lo_24V 1 "Active" 0 "Not Active" ;
+VAL_ 1425 X_Hour 255 "Not Defined Value" ;
+VAL_ 1425 X_Minute 255 "Not Defined Value" ;
+VAL_ 1425 X_Sec 255 "Not Defined Value" ;
+VAL_ 1666 X_E_BCCU 65535 "Not Defined Value" ;
+VAL_ 1666 X_E_Heat_Cnv 65535 "Not Defined Value" ;
+VAL_ 1666 X_E_Aux_Cnv 65535 "Not Defined Value" ;
+VAL_ 1666 X_E_Tr_Cnv 65535 "Not Defined Value" ;
+VAL_ 1665 X_E_Genr_Tot_Wh -1 "Not Defined Value" ;
+VAL_ 1664 X_E_Cosu_Daily_Wh 65535 "Not Defined Value" ;
+VAL_ 1664 X_E_Genr_Daily_Wh 65535 "Not Defined Value" ;
+VAL_ 1664 X_Avg_Cosu_Trp 65535 "Not Defined Value" ;
+VAL_ 1664 X_Avg_Cosu_Daily 65535 "Not Defined Value" ;
+VAL_ 1648 X_S14_8 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S14_7 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S14_5 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S14_4 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S14_3 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S14_2 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S14_1 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S13_6 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S13_5 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S13_4 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S13_3 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S13_2 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S13_1 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S12_8 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S12_7 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S7_8 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S7_7 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S7_3 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S7_2 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S7_1 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S6_5 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S6_4 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S6_3 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S6_2 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S6_1 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S5_8 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S5_7 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S5_3 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S5_1 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S4_3 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S4_1 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S3_7 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S3_5 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S5_6 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S5_2 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S4_8 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S4_2 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S3_6 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S3_3 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S3_1 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S1_3 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S1_1 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S3_4 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S3_2 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S1_6 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S1_4 1 "Not Blow" 0 "Blow" ;
+VAL_ 1648 X_S1_2 1 "Not Blow" 0 "Blow" ;
+VAL_ 1632 S_Mot_Room_Fi 1 "Active" 0 "Not Active" ;
+VAL_ 1632 S_Rear_Pnl_Fi 1 "Active" 0 "Not Active" ;
+VAL_ 1632 S_Bat_Room_Fi 1 "Active" 0 "Not Active" ;
+VAL_ 1632 S_Frnt_Pnl_Fi 1 "Active" 0 "Not Active" ;
+VAL_ 1632 X_U_ECU_Sp -1 "Not Defined Value" ;
+VAL_ 1632 S_Node_6_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1632 S_Node_5_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1632 S_Node_4_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1632 S_Node_3_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1632 S_Node_2_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1632 S_Node_1_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1632 S_Fus_Chk_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1619 S_Psv_Cmp_Stdstl_Tm_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1619 S_Psv_Cmp_Cyc_Tm_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1619 S_Psv_Cndnsr_Fan_On 1 "Active" 0 "Not Active" ;
+VAL_ 1619 S_Psv_Cmp_Run 1 "Active" 0 "Not Active" ;
+VAL_ 1619 C_Psv_Fd_Pmp_Run 1 "Active" 0 "Not Active" ;
+VAL_ 1619 S_Psv_Chiller_On 1 "Active" 0 "Not Active" ;
+VAL_ 1619 X_T_Psv_Max_Diff 255 "Not Defined Value" ;
+VAL_ 1619 X_T_Psv_Setpt 255 "Not Defined Value" ;
+VAL_ 1619 C_C1_Psv_Chiller_On 1 "Active" 0 "Not Active" ;
+VAL_ 1619 X_Fd_Pmp_Spd 65535 "Not Defined Value" ;
+VAL_ 1619 X_Spd_Fan 255 "Not Defined Value" ;
+VAL_ 1618 X_Lo_Pr 65535 "Not Defined Value" ;
+VAL_ 1618 X_Hi_Pr 65535 "Not Defined Value" ;
+VAL_ 1618 X_T_Rtn_Bat1 65535 "Not Defined Value" ;
+VAL_ 1618 X_T_Fd_Flw 65535 "Not Defined Value" ;
+VAL_ 1617 X_C1_Psv_Config_Fans 255 "Not Defined Value" ;
+VAL_ 1617 X_C1_Psv_Cnt_Fans 255 "Not Defined Value" ;
+VAL_ 1617 S_Actv_Chillers_On 1 "Active" 0 "Not Active" ;
+VAL_ 1617 S_Stdst1_Tm_Cmp_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1617 S_Cyc_Tm_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1617 S_Cndnsr_Fan_1_On 1 "Active" 0 "Not Active" ;
+VAL_ 1617 S_Cmp_Is_Run 1 "Active" 0 "Not Active" ;
+VAL_ 1617 S_Fd_Pmp_Is_Run 1 "Active" 0 "Not Active" ;
+VAL_ 1617 C_Actv_Chillers_On_Req 1 "Active" 0 "Not Active" ;
+VAL_ 1616 X_Fd_Pmp_Spd_Setpt 65535 "Not Defined Value" ;
+VAL_ 1616 X_T_Max_Rtn_Lim 65535 "Not Defined Value" ;
+VAL_ 1616 X_T_Lim_Fd_Rtn 65535 "Not Defined Value" ;
+VAL_ 1616 X_T_Setpt 65535 "Not Defined Value" ;
+VAL_ 1602 X_P_Str_Pmp 65535 "Not Defined Value" ;
+VAL_ 1602 X_I_Str_Pmp 255 "Not Defined Value" ;
+VAL_ 1602 X_U_Str_Pmp 255 "Not Defined Value" ;
+VAL_ 1602 X_Str_Pmp_Hour_Cnt 65535 "Not Defined Value" ;
+VAL_ 1602 X_T_Str_Pmp_Inver 255 "Not Defined Value" ;
+VAL_ 1602 X_T_Str_Pmp_Mot 255 "Not Defined Value" ;
+VAL_ 1601 S_Str_Pmp_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1601 S_Str_Pmp_Malfun_Ind_Lmp 1 "Active" 0 "Not Active" ;
+VAL_ 1601 S_Str_Pmp_Red_Warn 1 "Active" 0 "Not Active" ;
+VAL_ 1601 S_Str_Pmp_Ambr_Warn 1 "Active" 0 "Not Active" ;
+VAL_ 1601 S_Str_Pmp_Em_Slip 1 "Active" 0 "Not Active" ;
+VAL_ 1601 S_Str_Pmp_Em_FOC 1 "Active" 0 "Not Active" ;
+VAL_ 1601 S_Str_Pmp_Err_Stat 1 "Active" 0 "Not Active" ;
+VAL_ 1601 S_Mn_Ct_Stat 1 "Active" 0 "Not Active" ;
+VAL_ 1601 S_Pwr_Stg_Actv_Stat 1 "Active" 0 "Not Active" ;
+VAL_ 1601 S_Pwr_Stg_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1600 X_PCT_Mot_Load 255 "Not Defined Value" ;
+VAL_ 1600 S_Str_Pmp_Em_Frc 1 "Active" 0 "Not Active" ;
+VAL_ 1600 X_RPM_Str_Pmp_Act_Spd 65535 "Not Defined Value" ;
+VAL_ 1600 X_RPM_Str_Pmp_Set_Spd 65535 "Not Defined Value" ;
+VAL_ 1600 X_RPM_Str_Pmp 65535 "Not Defined Value" ;
+VAL_ 1600 C_Str_Pmp_Rs_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1600 C_Str_Pmp_Ctrl_En 1 "Active" 0 "Not Active" ;
+VAL_ 1584 S_Cmp_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1584 S_Air_Cmp_Stop_HVAC 1 "Active" 0 "Not Active" ;
+VAL_ 1584 X_Aux_Eqip_Sp_Pr 255 "Not Defined Value" ;
+VAL_ 1584 X_Air_Susp_Sp_Pr 255 "Not Defined Value" ;
+VAL_ 1584 X_Srv_Brk_Cir_2_Air_Pr 255 "Not Defined Value" ;
+VAL_ 1584 X_Srv_Brk_Cir_1_Air_Pr 255 "Not Defined Value" ;
+VAL_ 1568 S_DC_Chrg_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1568 X_I_24V_Bat_Out 65535 "Not Defined Value" ;
+VAL_ 1568 X_I_24V_Sp_Out 65535 "Not Defined Value" ;
+VAL_ 1568 X_U_24V_Sp_Out 65535 "Not Defined Value" ;
+VAL_ 1568 S_BC_Off_IL_Lim 1 "Active" 0 "Not Active" ;
+VAL_ 1568 C_24V_Sp_On 1 "Active" 0 "Not Active" ;
+VAL_ 1568 S_Ct_AC_Chrg_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1568 S_AC_Chrg_On 1 "Active" 0 "Not Active" ;
+VAL_ 1568 S_Chrg_Btn 1 "Active" 0 "Not Active" ;
+VAL_ 1553 S_BTMS_Rel_Plus_Aux 1 "Active" 0 "Not Active" ;
+VAL_ 1553 S_Cmp_Rel_Minus_Aux 1 "Active" 0 "Not Active" ;
+VAL_ 1553 S_Rear_Clm_Rel_Minus_Aux 1 "Active" 0 "Not Active" ;
+VAL_ 1553 S_Frnt_Clm_Rel_Minus_Aux 1 "Active" 0 "Not Active" ;
+VAL_ 1553 C_Cmp_Rel_Plus 1 "Active" 0 "Not Active" ;
+VAL_ 1553 C_Rear_Clm_Rel_Plus 1 "Active" 0 "Not Active" ;
+VAL_ 1553 C_Frnt_Clm_Rel_Plus 1 "Active" 0 "Not Active" ;
+VAL_ 1553 S_CtAC1_Cl_Stat_Aux 1 "Active" 0 "Not Active" ;
+VAL_ 1553 S_CtAC1_Cl_Req 1 "Active" 0 "Not Active" ;
+VAL_ 1553 S_Ct_Aux_Loads_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1552 X_P_24V_Sp_Out 65535 "Not Defined Value" ;
+VAL_ 1552 X_P_400V_Sp_Out 65535 "Not Defined Value" ;
+VAL_ 1552 X_I_400V_Sp_Out 65535 "Not Defined Value" ;
+VAL_ 1552 S_Aux_Red 1 "Active" 0 "Not Active" ;
+VAL_ 1552 S_400V_Sp_On 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1552 C_400V_Sp_On 1 "Active" 0 "Not Active" ;
+VAL_ 1536 X_P_Heat_Cnv 65535 "Not Defined Value" ;
+VAL_ 1536 S_HC_Off_IL_Lim 1 "Active" 0 "Not Active" ;
+VAL_ 1536 X_Req_Heat_Modl 255 "Not Defined Value" ;
+VAL_ 1536 S_Heat_On 1 "Active" 0 "Not Active" ;
+VAL_ 1424 S_ESS_On 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1424 S_HV_On 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1424 X_Vh_Id 65535 "Not Defined Value" ;
+VAL_ 1424 S_SW_Upd_En 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1424 X_T_Cool_Liq 255 "Not Defined Value" ;
+VAL_ 1424 S_Cool_Ok 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1424 X_T_24V_Bat 255 "Not Defined Value" ;
+VAL_ 1424 S_ECAS_Comm_Err 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1424 S_Ops_Acc 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1424 S_Ops_Bcu 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1408 S_Str_Ang_Snsr_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1408 X_Str_Wh_Ang 255 "Not Defined Value" ;
+VAL_ 1408 X_Str_Snsr_Cal 1 "Active" 0 "Not Active" ;
+VAL_ 1392 S_Artc_Comm_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1392 X_Artc_Reduc_Info 597 "Signal is not transferred " 596 "Not Used" 595 "Not Used" 594 "Not Used" 593 "Not Used" ;
+VAL_ 1392 X_Artc_Tilt_Ang 597 "Signal is not transferred " 596 "Not Used" 595 "Not Used" 594 "Not Used" 593 "Not Used" ;
+VAL_ 1392 X_Artc_Str_Ang 597 "Signal is not transferred " 596 "Not Used" 595 "Not Used" 594 "Not Used" 593 "Not Used" ;
+VAL_ 1392 S_Artc_Intl_Actv 3 "Signal is Not Transferred" 2 "Not Used" 1 "Interlock is Active" 0 "Interlock is Not Active" ;
+VAL_ 1392 S_Artc_Warn_Buz_3 1 "High Frequency" 0 "Not Used" ;
+VAL_ 1392 S_Artc_Warn_Buz_2 1 "Low Frequency" 0 "Not Active" ;
+VAL_ 1392 S_Artc_Warn_Buz_1 1 "Continous Sound" 0 "Not Active" ;
+VAL_ 1392 S_Artc_Err_Lmp 3 "Signal Lamp is Not Transferred" 2 "Not Used" 1 "Stop Lamp is Active" 0 "Stop Lamp is Not Active" ;
+VAL_ 1392 S_Artc_Warn_Lmp 3 "Signal is Not Transferred" 2 "Not Used" 1 "Warning Lamp is Active" 0 "Warning Lamp is Not Active" ;
+VAL_ 1392 X_Artc_Init 15 "Signal is not transferred" 14 "Not Used" 13 "Not Used" 12 "Not Used" 11 "Not Used" 10 "Not Used" 9 "Not Used" 8 "System recognition Init is run" 7 "Not Used" 6 "Not Used" 5 "Not Used" 4 "Not Used" 3 "Not Used" 2 "Not Used" 1 "Not Used" 0 "System recognition Initi compltd" ;
+VAL_ 1392 S_Artc_Em_Rls 1 "Active" 0 "Not Active" ;
+VAL_ 1376 X_U_Cmn_Mod 65535 "Not Defined Value" ;
+VAL_ 1376 X_U_Ln_DCDC 65535 "Not Defined Value" ;
+VAL_ 1376 X_U_DC_Link_CC200 65535 "Not Defined Value" ;
+VAL_ 1376 X_I_CC200 65535 "Not Defined Value" ;
+VAL_ 1360 S_BMS2_Gen_Warn 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS2_Mstr_CFG_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS2_Mstr_SW_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS2_Mstr_HW_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS2_Slv_Md_HW_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS2_SPI_Com_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS2_CAN_Hrbeat_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS1_Gen_Warn 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS1_Mstr_CFG_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS1_Mstr_SW_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS1_Mstr_HW_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS1_Slv_Md_HW_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS1_SPI_Com_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_BMS1_CAN_Hrbeat_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_IMD_Insu_Warn_Ops 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_IMD_Insu_Al_Ops 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_IMD_Insu_Al_Strup 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_IMD_Self_Tst_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_IMD_Wi_Intrpt_Func_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_PEC_HW_FW_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_CtCh_Ct_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_CtNeg_Ct_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_CtPos_Ct_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_St_I_MssMc 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_Bat_I_MssMc 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_Bat_V_Mss 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_TrpLn_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_VCU_CAN_Hrbeat_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_Bat_Cell_Unbal 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_ESS_SOC_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_ESS_SOC_Lo 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_ESS_Cont_Curr_Der 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_Bat_Cell_Un_Tmp 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_Bat_Cell_Ov_Tmp 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_Bat_Cell_Un_Volt 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_Bat_Cell_Ov_Volt 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_ESS_Ovld 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_ESS_Ov_Curr 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_PreChrg_To_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_PreChrg_Ovrld_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_PreChrg_Inh_Volt_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_PreChrg_Inh_Engy_Hi 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_TrpLn_Op_In_Ops 1 "Active" 0 "Not Active" ;
+VAL_ 1360 S_TrpLn_OT_Sw_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1353 X_DisChrg_Pwr_Cnt -1 "Not Defined Value" ;
+VAL_ 1353 X_Chrg_Pwr_Cnt -1 "Not Defined Value" ;
+VAL_ 1352 X_DisChrg_Curr_Cnt -1 "Not Defined Value" ;
+VAL_ 1352 X_Chrg_Curr_Cnt -1 "Not Defined Value" ;
+VAL_ 1351 X_Ts_At_SW_Upd -1 "Not Defined Value" ;
+VAL_ 1351 X_Ts_At_Cnt_Rs -1 "Not Defined Value" ;
+VAL_ 1350 X_T_BMS_Avg 255 "Not Defined Value" ;
+VAL_ 1350 X_T_BMS_MstrID_Min 7 "7" 6 "6" 5 "5" 4 "4" 3 "3" 2 "2" 1 "1" 0 "0" ;
+VAL_ 1350 X_T_BMS_Min 255 "Not Defined Value" ;
+VAL_ 1350 X_T_BMS_MstrID_Max 7 "7" 6 "6" 5 "5" 4 "4" 3 "3" 2 "2" 1 "1" 0 "0" ;
+VAL_ 1350 X_T_BMS_Max 255 "Not Defined Value" ;
+VAL_ 1349 X_E_Bat 255 "Not Defined Value" ;
+VAL_ 1349 X_Capcty_Bat 255 "Not Defined Value" ;
+VAL_ 1349 X_E_Avl 255 "Not Defined Value" ;
+VAL_ 1349 X_Capcty_Avl 255 "Not Defined Value" ;
+VAL_ 1349 X_SOE 255 "Not Defined Value" ;
+VAL_ 1349 X_SOH 255 "Not Defined Value" ;
+VAL_ 1349 X_SOC 255 "Not Defined Value" ;
+VAL_ 1348 X_Bat_Bal_Actv 3 "Not Available" 2 "Error" 1 "True" 0 "False" ;
+VAL_ 1348 X_Bat_IMD_On 3 "Not Available" 2 "Error" 1 "True" 0 "False" ;
+VAL_ 1348 X_Bat_Prechrg_Ct_Cl 3 "Not Available" 2 "Error" 1 "True" 0 "False" ;
+VAL_ 1348 X_Bat_Posv_Ct_Cl 3 "Not Available" 2 "Error" 1 "True" 0 "False" ;
+VAL_ 1348 X_Bat_Neg_Ct_Cl 3 "Not Available" 2 "Error" 1 "True" 0 "False" ;
+VAL_ 1348 X_Bat_Trp 3 "Not Available" 2 "Error" 1 "True" 0 "False" ;
+VAL_ 1348 X_Bat_Warn 3 "Not Available" 2 "Error" 1 "True" 0 "False" ;
+VAL_ 1348 X_Bat_Shdn 3 "Not Available" 2 "Error" 1 "True" 0 "False" ;
+VAL_ 1348 X_Bat_En 3 "Not Available" 2 "Error" 1 "True" 0 "False" ;
+VAL_ 1348 X_Bat_Rdy 3 "Not Available" 2 "Error" 1 "True" 0 "False" ;
+VAL_ 1347 X_T_Cool_Des 255 "Not Defined Value" ;
+VAL_ 1347 X_T_Cool_Max 255 "Not Defined Value" ;
+VAL_ 1347 X_Cool_Min_Flw 255 "Not Defined Value" ;
+VAL_ 1346 X_I_Max_Cont_DisChrg 65535 "Not Defined Value" ;
+VAL_ 1346 X_I_Max_Cont_Chrg 65535 "Not Defined Value" ;
+VAL_ 1346 X_I_Pk_DisChrg 65535 "Not Defined Value" ;
+VAL_ 1346 X_I_Pk_Chrg 65535 "Not Defined Value" ;
+VAL_ 1345 X_R_Insu 65535 "Not Defined Value" ;
+VAL_ 1345 X_U_Bat_Term 65535 "Not Defined Value" ;
+VAL_ 1345 X_U_Bat_Int 65535 "Not Defined Value" ;
+VAL_ 1345 X_I_Bat 65535 "Not Defined Value" ;
+VAL_ 1344 X_Tm_Sys_Sec 255 "Not Defined Value" ;
+VAL_ 1344 X_Pct_Rmn_Ovrld 255 "Not Defined Value" ;
+VAL_ 1344 X_Pmp_Run 1 "Active" 0 "Not Active" ;
+VAL_ 1344 X_T_Cool_ESS_Out 255 "Not Defined Value" ;
+VAL_ 1344 X_T_Cool_ESS_In 255 "Not Defined Value" ;
+VAL_ 1344 C_Cl_Ct_Neg 1 "Active" 0 "Not Active" ;
+VAL_ 1344 C_Disconn_Bat 1 "Active" 0 "Not Active" ;
+VAL_ 1344 C_Conn_Bat 1 "Active" 0 "Not Active" ;
+VAL_ 1344 C_Bat_Rs_Cnt 1 "Active" 0 "Not Active" ;
+VAL_ 1344 C_Bat_VCU_Rdy 1 "Active" 0 "Not Active" ;
+VAL_ 1344 C_Bat_IMD_Off 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Out_Temp_Choke_Snsr 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_CAN_Bus 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_In_Out_Curr_Snsr 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Out_Curr_Snsr 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_In_Curr_Snsr 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_In_Choke_Tmp_Snsr 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Tf_Temp_Snsr 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Fus_Minus_Pole 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Fus_Plus_Pole 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_SW_Trp_Ovr_Curr_Volt 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_HW_Trp_Ovr_Curr_Volt 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Pwr_Sp_Unit 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Chrg_In_Filt 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Amb_Tmp_Too_Lo 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Trans_Cnv 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Wrg_Tmp_Meas_Heat_Sink 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Ovr_Heat_In_Choke 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Tf_Ovr_Heat 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Volt_Meas_Trp 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Ovr_Heat_Sink 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Insu_2_Rel 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Insu_1_Rel 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_PreChrg_Ct 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Ln_Ct_2 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Ln_Ct_1 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Ovr_Heat_Out_Choke 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Sc_Mod 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Out_Ovr_Volt 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Ln_Over_Volt 1 "Active" 0 "Not Active" ;
+VAL_ 1328 S_Curr_Ovrld 1 "Active" 0 "Not Active" ;
+VAL_ 1316 X_U_Line 65535 "Not Defined Value" ;
+VAL_ 1316 X_T_Tf 255 "Not Defined Value" ;
+VAL_ 1316 X_T_Heat_Sink 255 "Not Defined Value" ;
+VAL_ 1315 X_U_Out 65535 "Not Defined Value" ;
+VAL_ 1315 X_I_Out 65535 "Not Defined Value" ;
+VAL_ 1315 X_U_DC_Link 65535 "Not Defined Value" ;
+VAL_ 1315 X_I_In 65535 "Not Defined Value" ;
+VAL_ 1314 X_I_Act_Out_Ref 65535 "Not Defined Value" ;
+VAL_ 1314 Z_Fat_Err_Ocr 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Aut_Rs_Trp_Lck 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Aut_Rs_Trp_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Warn_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Cnv_Cvr_Op 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Cnv_Rdy_Wrk 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Cnv_Wrk_Cor 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_In_Sgnl_Sfty_Drv 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Secnd_Sd_Insu_Tst_Rel_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Pri_Sd_Insu_Tst_Rel_Cl 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Prechrg_Ct_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Mn_Ct_Cir_Plus_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Mn_Ct_Cir_Minus_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Insu_Tst_Actv 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_Cnv_Rdy 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_DCDC_Conn 1 "Active" 0 "Not Active" ;
+VAL_ 1314 Z_DCDC_Disconn 1 "Active" 0 "Not Active" ;
+VAL_ 1313 W_U_Max_Pri_Sd 65535 "Not Defined Value" ;
+VAL_ 1313 W_U_Min_Pri_Sd 65535 "Not Defined Value" ;
+VAL_ 1313 W_I_Max_Secnd_Sd 65535 "Not Defined Value" ;
+VAL_ 1313 W_I_Tgt_Secnd_Sd 65535 "Not Defined Value" ;
+VAL_ 1312 W_U_Out_Lim_Cnv 65535 "Not Defined Value" ;
+VAL_ 1312 Z_Rdc_Fan_Spd 1 "Active" 0 "Not Active" ;
+VAL_ 1312 Z_Rs_Lac_Err 1 "Active" 0 "Not Active" ;
+VAL_ 1312 Z_Actv_Secnd_Cir_Insu_Tst 1 "Active" 0 "Not Active" ;
+VAL_ 1312 Z_Actv_Pri_Cir_Insu_Tst 1 "Active" 0 "Not Active" ;
+VAL_ 1312 Z_Cl_Mn_Ct_Insu_Tst 1 "Active" 0 "Not Active" ;
+VAL_ 1312 Z_Cnv_St_Ops 1 "Active" 0 "Not Active" ;
+VAL_ 1312 Z_Ct_Cl_Req 1 "Active" 0 "Not Active" ;
+VAL_ 1297 X_Vh_Spd_Lim 255 "Not Defined Value" ;
+VAL_ 1297 X_T_Brk_Rsr 255 "Not Defined Value" ;
+VAL_ 1297 X_P_Brk_Rsr 65535 "Not Defined Value" ;
+VAL_ 1297 X_I_Max_Brk_Rsr 65535 "Not Defined Value" ;
+VAL_ 1297 S_PM_Lim 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1297 S_MC_Lim 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1297 S_ASR_Off_Fdbk 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1297 S_ASR_Off_Req 3 "Don't care/take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 1297 X_Drv_Dir_Fdbk 3 "Error" 2 "Backwards" 1 "Forward" 0 "Neutral" ;
+VAL_ 1297 X_Drv_Dir 3 "Error" 2 "Backwards" 1 "Forward" 0 "Neutral" ;
+VAL_ 1297 S_Drv_Rls 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1297 S_Mot1_On 3 "SNA" 2 "Error" 1 "Enabled" 0 "Disabled" ;
+VAL_ 1296 X_T_Mot_1 255 "Not Defined Value" ;
+VAL_ 1296 X_P_Mot_1 65535 "Not Defined Value" ;
+VAL_ 1296 X_I_Mot_1 65535 "Not Defined Value" ;
+VAL_ 1296 X_Frq_Trq_Mot_1 65535 "Not Defined Value" ;
+VAL_ 1284 X_M_Rls 65535 "Not Defined Value" ;
+VAL_ 1284 X_ACU_Trq_Der 255 "Not Defined Value" ;
+VAL_ 1284 X_Spd_Lim_Der 255 "Not Defined Value" ;
+VAL_ 1284 X_M_Max_Avl 65535 "Not Defined Value" ;
+VAL_ 1284 X_Brk_Pdl_Pos 255 "Not Defined Value" ;
+VAL_ 1284 Z_Stat_Ret 255 "Not Defined Value" ;
+VAL_ 1283 X_Acc_Pdl_Pos 255 "Not Defined Value" ;
+VAL_ 1283 X_M_Min_Mot_1 65535 "Not Defined Value" ;
+VAL_ 1283 X_Req_Trq_Mot 65535 "Not Defined Value" ;
+VAL_ 1283 X_M_Max_Mot_1 65535 "Not Defined Value" ;
+
