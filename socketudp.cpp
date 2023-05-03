@@ -76,40 +76,61 @@ void socketUDP::processReceiveDatagram(QNetworkDatagram *datagram)
 {
     QByteArray packData = datagram->data();
 
-    qInfo()<<QString::number(packData[0]);
-    qInfo()<<QString::number(packData[1]);
-    qInfo()<<QString::number(packData[2]);
-    qInfo()<<QString::number(packData[3]);
-    qInfo()<<QString::number(packData[4]);
-    /*
-    QString ID0 =  QString::number(combineBytes(subarray(packData,0,1)));
-
-
-    for(comUdpData::paramSignal* signal : receiveData->qm_comParam.value(ID0)){
-        receiveData->qm_data[signal->m_name]= QString::number(this->getBetween(combineBytes(subarray(packData,2,9)),signal->m_startBit,signal->m_length));
-    }
-    QString ID1 =  QString::number(combineBytes(subarray(packData,10,11)));
-    for(comUdpData::paramSignal* signal : receiveData->qm_comParam.value(ID1)){
-        receiveData->qm_data[signal->m_name]= QString::number(this->getBetween(combineBytes(subarray(packData,12,19)),signal->m_startBit,signal->m_length));
-    }
-    qInfo()<<ID1;
-    QString ID2 =  QString::number(combineBytes(subarray(packData,20,21)));
-    for(comUdpData::paramSignal* signal : receiveData->qm_comParam.value(ID2)){
-        receiveData->qm_data[signal->m_name]= QString::number(this->getBetween(combineBytes(subarray(packData,22,29)),signal->m_startBit,signal->m_length));
-    }
-    QString ID3 =  QString::number(combineBytes(subarray(packData,30,31)));
-    for(comUdpData::paramSignal* signal : receiveData->qm_comParam.value(ID3)){
-        receiveData->qm_data[signal->m_name]= QString::number(this->getBetween(combineBytes(subarray(packData,32,39)),signal->m_startBit,signal->m_length));
-    }*/
+        if(packData.size()>9){
+            QString ID0 =  QString::number(combineBytes(subarray(packData,0,1)));
+            if(receiveData->qm_comParam.contains(ID0)){
+                foreach(comUdpData::paramSignal* signal , receiveData->qm_comParam[ID0]){
+                    receiveData->qm_data[signal->m_name]= QString::number(this->getBetween(combineBytes(subarray(packData,2,9)),signal->m_startBit,signal->m_length));
+                }
+            }else{
+                qInfo()<< "Data 0 not received, ID cant find";
+            }
+        }else{
+            qInfo()<< "Data 0 not received, length is short";
+        }
+        if(packData.size()>19){
+            QString ID1 =  QString::number(combineBytes(subarray(packData,10,11)));
+            if(receiveData->qm_comParam.contains(ID1)){
+                for(comUdpData::paramSignal* signal : receiveData->qm_comParam.value(ID1)){
+                    receiveData->qm_data[signal->m_name]= QString::number(this->getBetween(combineBytes(subarray(packData,12,19)),signal->m_startBit,signal->m_length));
+                }
+            }else{
+                qInfo()<< "Data 1 not received, ID cant find";
+            }
+        }else{
+            qInfo()<< "Data 1 not received, length is short";
+        }
+        if(packData.size()>29){
+            QString ID2 =  QString::number(combineBytes(subarray(packData,20,21)));
+            if(receiveData->qm_comParam.contains(ID2)){
+                for(comUdpData::paramSignal* signal : receiveData->qm_comParam.value(ID2)){
+                    receiveData->qm_data[signal->m_name]= QString::number(this->getBetween(combineBytes(subarray(packData,22,29)),signal->m_startBit,signal->m_length));
+                }
+            }else{
+                qInfo()<< "Data 2 not received, ID cant find";
+            }
+        }else{
+            qInfo()<< "Data 2 not received, length is short";
+        }
+        if(packData.size()>39){
+            QString ID3 =  QString::number(combineBytes(subarray(packData,30,31)));
+            if(receiveData->qm_comParam.contains(ID3))
+                for(comUdpData::paramSignal* signal : receiveData->qm_comParam.value(ID3)){
+                    receiveData->qm_data[signal->m_name]= QString::number(this->getBetween(combineBytes(subarray(packData,32,39)),signal->m_startBit,signal->m_length));
+                }else{
+                qInfo()<< "Data 3 not received, ID cant find";
+            }
+        }else{
+            qInfo()<< "Data 3 not received, length is short";
+        }
         emit dataChanged();
+
 }
 
 QByteArray socketUDP::processSendDatagram()
 {
     QByteArray data;
-    data.append("600 ");
-    data.append("100");
-    data.append("23223");
+
     return data;
 }
 QString socketUDP::PCIP() const
@@ -197,8 +218,9 @@ void socketUDP::stopUdpCom()
 }
 quint64 socketUDP::getBetween(uint64_t rawData, unsigned int startBit, unsigned int length)
 {
-    quint64 mask = (1ULL << length) - 1ULL;
-    quint64 data = (rawData >> startBit) & mask;
+    quint64 mask = 0b1111111111111111111111111111111111111111111111111111111111111111;
+    quint64 mask2 = (mask >> (64-length));
+    quint64 data = (rawData >> startBit) & mask2;
 
     return data;
 }
@@ -208,7 +230,7 @@ quint64 socketUDP::combineBytes(const QByteArray &data)
 
     quint64 result = 0;
     for (int i = 0; i < data.size(); i++) {
-        result |= (quint64)(data[i] & 0xFF) << (i * data.size());
+        result |= (quint64)(static_cast<quint8>(data[i]) & 0xFFU) << (i * 8);
     }
     return result;
 }
@@ -217,9 +239,7 @@ QByteArray socketUDP::subarray(const QByteArray& data, unsigned int startIndex, 
     QByteArray result(endIndex - startIndex + 1, 0);
     for (int i = startIndex; i <= endIndex; i++)
     {
-        qInfo()<<i;
         result[i - startIndex] = data[i];
-        qInfo()<<QString::number(data[i]);
     }
     return result;
 }

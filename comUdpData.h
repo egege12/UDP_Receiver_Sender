@@ -95,7 +95,7 @@ inline bool comUdpData::parseSignals(QFile *dbcFile)
             curSignal->m_max = parseMaxValue(getBetween("[","]",curLine));
 
             if(qm_comParam.contains(messageID)){
-                qm_comParam.value(messageID).append(curSignal);
+                qm_comParam[messageID].append(curSignal);
             }else{
                 QList<paramSignal*> contlist;
                 contlist.append(curSignal);
