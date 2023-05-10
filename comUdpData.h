@@ -12,8 +12,6 @@ class comUdpData: public QObject{
      Q_OBJECT
 
 
-
-
     bool parseSignals(QFile *dbcFile);
 
     QList<QString> warnings;
@@ -32,13 +30,14 @@ public:
     QMap<QString,QList<paramSignal*>> qm_comParam;
     bool importDBC(QString qs_location);
     const QMap<QString,QList<comUdpData::paramSignal*>> * const getsignalParams();
+    static unsigned long sendIndex;
 
 public slots:
     QString getValue(QString Name);
     void dataChangeNotify();
+    void setValue(QString variableName,QString value);
 signals:
     void dataChanged();
-
 };
 struct comUdpData::paramSignal{
     QString m_name;
@@ -49,6 +48,8 @@ struct comUdpData::paramSignal{
     double m_resolution;
     double m_offset;
 };
+
+
 inline bool comUdpData::parseSignals(QFile *dbcFile)
 {
     QTextStream  *lines = new QTextStream(dbcFile);
@@ -148,6 +149,16 @@ inline bool comUdpData::importDBC(QString qs_location)
 inline const QMap<QString,QList<comUdpData::paramSignal*>>  * const comUdpData::getsignalParams()
 {
     return &qm_comParam;
+}
+
+inline void comUdpData::setValue(QString variableName, QString value)
+{
+    if(this->qm_data.contains(variableName)){
+        this->qm_data[variableName] = value;
+        emit  dataChanged();
+    }
+
+
 }
 
 inline QString comUdpData::getValue(QString Name)

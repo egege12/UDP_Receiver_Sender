@@ -27,76 +27,78 @@ Window {
     property string x_ACU_Trq_Der
     property string x_M_Rls
 
+    property string value;
+    property string variable;
 
     Rectangle{
         anchors.fill: parent
 
-    Rectangle{
-        id:rec1
-        anchors.alignWhenCentered: parent
-        width : name1.implicitWidth;
-        height: name1.implicitHeight;
-        border.width: 2
-        border.color : "black"
-        Text{
+        Rectangle{
+            id:rec1
+            anchors.alignWhenCentered: parent
+            width : name1.implicitWidth;
+            height: name1.implicitHeight;
+            border.width: 2
+            border.color : "black"
+            Text{
 
-            id: name1
-            text: qsTr(x_E_Psng2_AC_Cosu_kWh)
-            width :80
-            font.pixelSize: 18
-            antialiasing: true
-            font.hintingPreference: Font.PreferNoHinting
-            style: Text.Normal
-            focus: false
-            font.weight: Font.Medium
-            font.family: "Verdana"
+                id: name1
+                text: qsTr(x_E_Psng2_AC_Cosu_kWh)
+                width :80
+                font.pixelSize: 18
+                antialiasing: true
+                font.hintingPreference: Font.PreferNoHinting
+                style: Text.Normal
+                focus: false
+                font.weight: Font.Medium
+                font.family: "Verdana"
+            }
+
         }
+        Rectangle{
+            id: rec2
+            anchors.top: rec1.bottom
+            anchors.topMargin: 15
+            width : name2.implicitWidth;
+            height: name2.implicitHeight;
+            border.width: 2
+            border.color : "black"
+            Text{
 
-    }
-    Rectangle{
-        id: rec2
-        anchors.top: rec1.bottom
-        anchors.topMargin: 15
-        width : name2.implicitWidth;
-        height: name2.implicitHeight;
-        border.width: 2
-        border.color : "black"
-        Text{
+                id: name2
+                text: qsTr(x_Avg_Cosu_Daily)
+                width :80
+                font.pixelSize: 18
+                antialiasing: true
+                font.hintingPreference: Font.PreferNoHinting
+                style: Text.Normal
+                focus: false
+                font.weight: Font.Medium
+                font.family: "Verdana"
+            }
+        }Rectangle{
+            id:rec3
+            anchors.top: rec2.bottom
+            anchors.topMargin: 15
+            width : name3.implicitWidth;
+            height: name3.implicitHeight;
+            border.width: 2
+            border.color : "black"
+            Text{
 
-            id: name2
-            text: qsTr(x_Avg_Cosu_Daily)
-            width :80
-            font.pixelSize: 18
-            antialiasing: true
-            font.hintingPreference: Font.PreferNoHinting
-            style: Text.Normal
-            focus: false
-            font.weight: Font.Medium
-            font.family: "Verdana"
+                id: name3
+                text: qsTr(x_Avg_Cosu_Trp)
+                width :80
+                font.pixelSize: 18
+                antialiasing: true
+                font.hintingPreference: Font.PreferNoHinting
+                style: Text.Normal
+                focus: false
+                font.weight: Font.Medium
+                font.family: "Verdana"
+            }
         }
-    }Rectangle{
-        id:rec3
-        anchors.top: rec2.bottom
-        anchors.topMargin: 15
-        width : name3.implicitWidth;
-        height: name3.implicitHeight;
-        border.width: 2
-        border.color : "black"
-        Text{
-
-            id: name3
-            text: qsTr(x_Avg_Cosu_Trp)
-            width :80
-            font.pixelSize: 18
-            antialiasing: true
-            font.hintingPreference: Font.PreferNoHinting
-            style: Text.Normal
-            focus: false
-            font.weight: Font.Medium
-            font.family: "Verdana"
-        }
-    }
-    Rectangle{
+        Rectangle{
             id:rec4
             anchors.top: rec3.bottom
             anchors.topMargin: 15
@@ -118,6 +120,93 @@ Window {
                 font.family: "Verdana"
             }
         }
+
+        Rectangle{
+            id:rec5
+            anchors.top: rec4.bottom
+            anchors.topMargin: 15
+            width : name5.implicitWidth;
+            height: name5.implicitHeight;
+            border.width: 2
+            border.color : "black"
+            Text{
+
+                id: name5
+                text: qsTr("Değişken")
+                width :80
+                font.pixelSize: 18
+                antialiasing: true
+                font.hintingPreference: Font.PreferNoHinting
+                style: Text.Normal
+                focus: false
+                font.weight: Font.Medium
+                font.family: "Verdana"
+                TextField {
+                    id: nam5textfield
+                    height: 18
+                    width: 80
+                    anchors{
+                        left: parent.right
+                        leftMargin: 20
+                    }
+                    placeholderText: qsTr("Değişken")
+                    font.family: "Verdana"
+                    onTextChanged: {
+                        variable = nam5textfield.text
+                    }
+                }
+            }
+
+        }
+        Rectangle{
+            id:rec6
+            anchors.top: rec5.bottom
+            anchors.topMargin: 15
+            width : name6.implicitWidth;
+            height: name6.implicitHeight;
+            border.width: 2
+            border.color : "black"
+            Text{
+
+                id: name6
+                text: qsTr("Değişken")
+                width :80
+                font.pixelSize: 18
+                antialiasing: true
+                font.hintingPreference: Font.PreferNoHinting
+                style: Text.Normal
+                focus: false
+                font.weight: Font.Medium
+                font.family: "Verdana"
+                TextField {
+                    id: nam6textfield
+                    height: 18
+                    width: 80
+                    anchors{
+                        left: parent.right
+                        leftMargin: 20
+                    }
+                    placeholderText: qsTr("Değer")
+                    font.family: "Verdana"
+                    onAcceptableInputChanged: {
+                        value = nam6textfield.text
+                    }
+                }
+            }
+
+        }
+
+
+            Button {
+                id: but1
+                anchors.top: rec6.bottom
+                anchors.topMargin: 15
+                text: "Ok"
+                onClicked: {
+                    udpSend.setValue(variable,value);
+                    console.log("stage 1");}
+
+                }
     }
     Connections{
         target:udpReceive
@@ -129,6 +218,12 @@ Window {
             x_ESS_SW_Ver_MIN= " X_ESS_SW_Ver_MIN: " + udpReceive.getValue("X_ESS_SW_Ver_MIN");
             x_ESS_SW_Ver_REV= " X_ESS_SW_Ver_REV: " + udpReceive.getValue("X_ESS_SW_Ver_REV");
             x_ESS_SW_Ver_DEV= " X_ESS_SW_Ver_DEV: " + udpReceive.getValue("X_ESS_SW_Ver_DEV");
+        }
+    }
+    Connections{
+        target:udpSend
+        onDataChanged: {
+            console.log("stage 2");
         }
     }
 }

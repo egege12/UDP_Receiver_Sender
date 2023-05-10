@@ -62,7 +62,7 @@ private:
     QString m_addressIP;
     QString m_addressPORT;
     bool m_socketBind;
-
+    QMap<QString,QList<comUdpData::paramSignal*>>::iterator sendIndex;
     QUdpSocket *socketUdp;
     QTimer *timer;
     QTimer timerTimeoutChecker;
@@ -74,6 +74,12 @@ private:
     quint64 getBetween(uint64_t rawData, unsigned int startBit, unsigned int length);
     quint64 combineBytes(const QByteArray &data);
     QByteArray subarray(const QByteArray &data, unsigned int startIndex, unsigned int endIndex);
+    QString takeResOffset(QString value,double resolution, double offset);
+
+    quint64 setBetween(quint64 rawData, unsigned int startBit, unsigned int length);
+    QByteArray makeSubArray(const quint64 &data);
+    QString makeResOffset(QString value,double resolution, double offset);
+
 };
 
 #endif // SOCKETUDP_H
