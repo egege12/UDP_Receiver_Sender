@@ -143,8 +143,6 @@ QByteArray socketUDP::processSendDatagram()
             ID0= sendIndex.key();
         }
 
-
-
         if(sendIndex != sendData->qm_comParam.end()){
             ID1= sendIndex.key();
             sendIndex++;

@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Main.qml</file>
+        <file>MenuButton.qml</file>
+        <file>ButtonBar.qml</file>
+        <file>PopupWindow.qml</file>
+        <file>img/600600.png</file>
+        <file>img/arrowLeft.png</file>
+        <file>img/arrowRight.png</file>
+        <file>img/iconEscapeButton.png</file>
+        <file>img/iconFullscreenButton.png</file>
+        <file>img/progressSucces.png</file>
+        <file>img/iconIconSizeButton.png</file>
+        <file>ComInterface.qml</file>
+        <file>Sc01_Main.qml</file>
+        <file>img/500_500_Worker.png</file>
+        <file>img/540_540_TestIcon.png</file>
+        <file>img/800_800_MonitoringIcon.png</file>
+        <file>TouchButton.qml</file>
+        <file>img/512_512_ComInterface.png</file>
+    </qresource>
+</RCC>

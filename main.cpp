@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     emit udpSocket.sendDatagram();
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
-    const QUrl url(u"qrc:/UDP_Receiver_Sender/Main.qml"_qs);
+    const QUrl url(QStringLiteral("qrc:/Main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
         &app, [url](QObject *obj, const QUrl &objUrl) {
             if (!obj && url == objUrl)

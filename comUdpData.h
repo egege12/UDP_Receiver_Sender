@@ -1,6 +1,8 @@
 
 #ifndef COMUDPDATA_H
 #define COMUDPDATA_H
+#include "qdebug.h"
+#include "qforeach.h"
 #include <QString>
 #include <QMap>
 #include <QFile>
@@ -36,6 +38,7 @@ public slots:
     QString getValue(QString Name);
     void dataChangeNotify();
     void setValue(QString variableName,QString value);
+    QList<QString> getDataList();
 signals:
     void dataChanged();
 };
@@ -158,7 +161,15 @@ inline void comUdpData::setValue(QString variableName, QString value)
         emit  dataChanged();
     }
 
+}
 
+inline QList<QString> comUdpData::getDataList()
+{
+    QList<QString> temp = {};
+    foreach(QString signalName , this->qm_data.keys()){
+        temp.append(signalName);
+    }
+    return temp;
 }
 
 inline QString comUdpData::getValue(QString Name)
