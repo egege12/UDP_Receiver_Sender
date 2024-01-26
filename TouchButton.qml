@@ -1,5 +1,5 @@
-import QtQuick 2.15
-
+import QtQuick 6.2
+import QtQuick.Controls 6.2
 Rectangle {
     id:buttonRectangle
     signal buttonClicked()
@@ -20,15 +20,18 @@ Rectangle {
     onDisableButtonClickChanged: disableButtonClick ? disabledColor : releasedColor
     color :disableButtonClick ? disabledColor : releasedColor
     Image{
+        id:image
         width: parent.width*imageRatio
         height: parent.height*imageRatio
         anchors.centerIn: parent
         antialiasing: true
         source: parent.buttonImageSource
-        opacity: parent.disableButtonClick ? 0.5 : 1.0
+        opacity: parent.disableButtonClick ? 0.4 : 1.0
         fillMode:Image.PreserveAspectFit
         z:1
     }
+
+
     MouseArea{
         id:mouseArea
         anchors.fill: parent
@@ -37,10 +40,13 @@ Rectangle {
             parent.color = parent.disableButtonClick ? parent.disabledColor : parent.releasedColor
             parent.disableButtonClick ? undefined : parent.buttonReleased()
         }
-        onClicked: parent.disableButtonClick ? undefined: parent.buttonClicked()
+        onClicked: {parent.disableButtonClick ? undefined: parent.buttonClicked()}
         hoverEnabled: true
-        onEntered: {parent.color = parent.hoveredColor; parent.buttonEntered()}
-        onExited: {parent.color = parent.releasedColor; parent.buttonExited()}
+        onEntered: {
+            if(parent.disableButtonClick === false){parent.color = parent.hoveredColor; parent.buttonEntered()}}
+        onExited: {if(parent.disableButtonClick === false) { parent.color = parent.releasedColor; parent.buttonExited()}}
         z:2
     }
+
 }
+

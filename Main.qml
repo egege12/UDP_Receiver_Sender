@@ -1,6 +1,6 @@
-import QtQuick 2.15
+import QtQuick 6.2
 import QtQuick.Window 2.15
-import QtQuick.Controls 2.0
+import QtQuick.Controls 6.2
 
 Window {
     id: root
@@ -10,6 +10,13 @@ Window {
     property bool fullscreen
     property bool iconSize
     property bool darkmode:false
+    property bool naviBarActive:false
+
+    //CONSTANTS
+    //-------------------------------------
+    property var naviAreaHeight : 30 ;
+
+
     flags: Qt.FramelessWindowHint | Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint  // to hide windows window and still show minimized icon
     title: qsTr("Charger UI")
     color:"transparent"
@@ -105,6 +112,7 @@ Window {
             id:stackAreaRectangle
             anchors.top:topBar.bottom
             anchors.bottom:parent.bottom
+            anchors.bottomMargin:naviAreaHeight
             anchors.right:parent.right
             anchors.left:parent.left
             gradient: Gradient {
@@ -124,97 +132,31 @@ Window {
                 }
                 orientation: Gradient.Vertical
             }
-            z:4
+            z:3
             StackView {
                 id: stack
                 anchors.fill:parent
-                initialItem: "qrc:/Sc01_Main.qml"
+                initialItem: "qrc:/Sc1010_Main.qml"
                 z:2
+
             }
-            Rectangle {
+
+        }
+        Rectangle{
+            id:naviArea
+            anchors.bottom:parent.bottom
+            height : naviAreaHeight
+            anchors.right: parent.right
+            anchors.left:parent.left
+            clip: false
+            z:4
+            NavigationBar{
                 id: navigationBar
-                anchors.horizontalCenter: parent.horizontalCenter
-                y: parent.height * .8
-                width: 612
-                height: 97
-                radius: 25
-                border.color: "#ffffff"
-                z:3
-                gradient: Gradient {
-                    GradientStop {
-                        position: 0
-                        color: "#858585"
-                    }
+                accountMaintenance:"Egemen Turker"
 
-                    GradientStop {
-                        position: 1
-                        color: "#00000000"
-                    }
-                    orientation: Gradient.Vertical
-                }
-                Text{
-                    id : maintenanceGuyName
-                    text: qsTr("Egemen Türker")
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: parent.left
-                    anchors.leftMargin: 10
-                    anchors.right:maintenanceGuyPic.left
-                    font.pixelSize: 18
-                    antialiasing: true
-                    font.hintingPreference: Font.PreferNoHinting
-                    style: Text.Normal
-                    focus: false
-                    font.weight: Font.Medium
-                    font.family: "Verdana"
-                    color: "white"
-                    wrapMode: Text.Wrap
-                    elide: Text.ElideNone
-                }
-                Image{
-                    id:maintenanceGuyPic
-                    anchors.left:parent.left
-                    anchors.leftMargin:100
-                    anchors.top:parent.top
-                    anchors.bottom: parent.bottom
-                    antialiasing: true
-                    source:"qrc:/img/500_500_Worker.png"
-                    fillMode:Image.PreserveAspectFit
-                }
-                TouchButton{
-                    id : monitoringButton
-                    width: 120
-                    buttonImageSource : "qrc:/img/800_800_MonitoringIcon.png"
-                    clip: false
-                    visible: true
-                    anchors.left:maintenanceGuyPic.right
-                    anchors.leftMargin: 20
-                    anchors.verticalCenter: parent.verticalCenter
-
-                }
-                TouchButton{
-                    id : testButton
-                    width: 120
-                    buttonImageSource : "qrc:/img/540_540_TestIcon.png"
-                    clip: false
-                    visible: true
-                    anchors.left:monitoringButton.right
-                    anchors.verticalCenter: parent.verticalCenter
-
-                }
-                TouchButton{
-                    id : comButton
-                    width: 120
-                    buttonImageSource : "qrc:/img/512_512_ComInterface.png"
-                    clip: false
-                    visible: true
-                    anchors.left:testButton.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    onButtonClicked: {
-                        stack.push("qrc:/ComInterface.qml")
-                    }
-                }
             }
         }
+
 
         Popup{
             id:popupWindow
@@ -269,4 +211,21 @@ Window {
             }
         }
     }
+    Connections{
+        target:internalOp
+        onActiveScreenChanged:{
+            if(internalOp.activeScreen === 1010){
+                stack.pop()
+                stack.push("qrc:/Sc1010_Main.qml")
+            }else if(internalOp.activeScreen === 2010){
+
+            }else if(internalOp.activeScreen === 2020){
+
+            }else if(internalOp.activeScreen === 2030){
+                stack.pop()
+                stack.push("qrc:/Sc2030_ComMon.qml")
+            }
+        }
+    }
+
 }

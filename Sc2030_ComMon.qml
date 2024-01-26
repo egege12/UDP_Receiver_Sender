@@ -1,10 +1,8 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.0
+import QtQuick 6.2
+import QtQuick.Controls 6.2
 import QtQuick.Layouts 1.0
-Rectangle {
-    anchors.fill:parent
+Item {
 
-    color:"transparent"
     Rectangle{
         id:transmitSignals
         width:parent.width/2
@@ -12,7 +10,9 @@ Rectangle {
         anchors.bottom:parent.bottom
         anchors.left:parent.left
         color:"transparent"
-
+        signal boxCreated()
+        property bool rxBoxOk:false
+        property bool txBoxOk:false
         ScrollView{
             id:scrollViewTxObject
             anchors.fill: parent
@@ -71,6 +71,10 @@ Rectangle {
                     var linesArray =  udpSend.getDataList();
                     for (var j = 0; j < linesArray.length; j++) {
                         createBox(linesArray[j])
+                    }
+                    transmitSignals.txBoxOk = true;
+                    if(transmitSignals.rxBoxOk && transmitSignals.txBoxOk){
+                        transmitSignals.boxCreated();
                     }
 
                 }
@@ -150,8 +154,12 @@ Rectangle {
                     for (var j = 0; j < linesArray.length; j++) {
                         createBox(linesArray[j])
                     }
-
+                    transmitSignals.rxBoxOk = true;
+                    if(transmitSignals.rxBoxOk && transmitSignals.txBoxOk){
+                        transmitSignals.boxCreated();
+                    }
                 }
+
                 function clearBoxes() {
                     for (var i = 0; i < createdBoxes.length; i++) {
                         createdBoxes[i].destroy() // Oluşturulmuş kutuları yok et
@@ -161,15 +169,20 @@ Rectangle {
             }
         }
     }
+
+
     Component.onCompleted: {
         console.log("ComInterface.qml loaded.")
         gridRx.createBoxes();
         gridTx.createBoxes();
+
     }
+
     Component.onDestruction: {
         console.log("ComInterface.qml destructed.")
         gridRx.clearBoxes();
         gridTx.clearBoxes();
     }
+
 
 }

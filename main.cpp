@@ -4,13 +4,14 @@
 #include <QQmlContext>
 #include "socketudp.h"
 #include "comUdpData.h"
+#include "InternalOp.h"
 #include <QThread>
 int main(int argc, char *argv[])
 {
     QThread workerThread;
     comUdpData *const udpReceive = new comUdpData;
     comUdpData *const udpSend = new comUdpData;
-
+    InternalOp internalOp;
     udpReceive->importDBC("udpReceive.dbc");
     udpSend->importDBC("udpSend.dbc");
     QThread::currentThread()->setObjectName("Main Thread");
@@ -32,8 +33,10 @@ int main(int argc, char *argv[])
 
     QQmlContext * Context1 = engine.rootContext();
     QQmlContext * Context2 = engine.rootContext();
+    QQmlContext * Context3 = engine.rootContext();
     Context1->setContextProperty("udpReceive", udpReceive);
     Context2->setContextProperty("udpSend", udpSend);
+    Context2->setContextProperty("internalOp", &internalOp);
     engine.load(url);
 
     return app.exec();

@@ -11,12 +11,13 @@
         <file>img/iconFullscreenButton.png</file>
         <file>img/progressSucces.png</file>
         <file>img/iconIconSizeButton.png</file>
-        <file>ComInterface.qml</file>
-        <file>Sc01_Main.qml</file>
+        <file>Sc2030_ComMon.qml</file>
+        <file>Sc1010_Main.qml</file>
         <file>img/500_500_Worker.png</file>
         <file>img/540_540_TestIcon.png</file>
         <file>img/800_800_MonitoringIcon.png</file>
         <file>TouchButton.qml</file>
         <file>img/512_512_ComInterface.png</file>
+        <file>NavigationBar.qml</file>
     </qresource>
 </RCC>

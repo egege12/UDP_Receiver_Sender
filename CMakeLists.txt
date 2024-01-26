@@ -18,6 +18,7 @@ set(PROJECT_SOURCES
     socketudp.cpp
     socketudp.h
     comUdpData.h
+    InternalOp.h
     qml.qrc
 )
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

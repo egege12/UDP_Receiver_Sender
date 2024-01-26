@@ -276,7 +276,7 @@ void socketUDP::sendTheDatagram()
     }else{
         socketUdp ->writeDatagram(processSendDatagram(),QHostAddress(this->addressIP()),this->addressPORT().toInt());
     }
-    qInfo()<<"Data sent";
+    //qInfo()<<"Data sent";
 
 }
 
